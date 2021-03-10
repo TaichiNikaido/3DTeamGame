@@ -1,151 +1,396 @@
-//=============================================================================
-//
-// シーン管理 [scene.cpp]
-// Author : 二階堂汰一
-//
-//=============================================================================
+//******************************************************************************
+// リスト構造 [scene.cpp]
+// Author : 管原　司
+//******************************************************************************
 
-//*****************************************************************************
-// ヘッダファイルのインクルード
-//*****************************************************************************
-#include "main.h"
+//******************************************************************************
+// インクルードファイル
+//******************************************************************************
 #include "scene.h"
-#include "renderer.h"
-#include "scene2D.h"
+#include "scene2d.h"
 
-//*****************************************************************************
-// マクロ定義
-//*****************************************************************************
-
-//*****************************************************************************
-// 静的メンバ変数の初期化
-//*****************************************************************************
-CScene * CScene::m_apScene[PRIORITY_MAX][MAX_SCENE] = {};	//シーンへのポインタ
-int CScene::m_nNumAll = 0;									//シーンの総数
-
-//=============================================================================
+//******************************************************************************
+// 静的メンバ変数宣言
+//******************************************************************************
+CScene *CScene::m_pTop[OBJTYPE_MAX] = {};
+CScene *CScene::m_pCur[OBJTYPE_MAX] = {};
+int CScene::m_nNext = INIT_INT;
+bool CScene::m_bUpdateStop = false;
+//******************************************************************************
 // コンストラクタ
-//=============================================================================
+//******************************************************************************
 CScene::CScene(int nPriority)
 {
-	m_nID = 0;
-	m_nPriority = nPriority;
-	m_Position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	for (int nCount = 0; nCount < MAX_SCENE; nCount++)
+	// m_pNextをNULL
+	m_pNext = NULL;
+
+	// m_pPrevをNULL
+	m_pPrev = NULL;
+
+	//トップがNULLの時
+	if (m_pTop[nPriority] == NULL)
 	{
-		if (m_apScene[m_nPriority][nCount] == NULL)
-		{
-			m_apScene[m_nPriority][nCount] = this;
-			m_nID = nCount;
-			m_nNumAll++;
-			break;
-		}
+		m_pTop[nPriority] = this;
 	}
+	//トップがNULLじゃないとき
+	else
+	{
+		m_pPrev = m_pCur[nPriority];
+		m_pCur[nPriority]->m_pNext = this;
+	}
+
+	// m_pNextをNULL
+	m_pNext = NULL;
+
+	// m_pCurに代入
+	m_pCur[nPriority] = this;
+
+	// オブジェクトタイプ初期化
 	m_objType = OBJTYPE_NONE;
+
+	// Priority代入
+	m_nPriority = nPriority;
+
+	// 死亡フラグをfalseに
+	m_bDeath = false;
 }
 
-//=============================================================================
+//******************************************************************************
 // デストラクタ
-//=============================================================================
+//******************************************************************************
 CScene::~CScene()
 {
+
 }
 
-//=============================================================================
-// 全体更新関数
-//=============================================================================
-void CScene::UpdateAll(void)
-{
-	for (int nCountPriority = 0; nCountPriority < PRIORITY_MAX; nCountPriority++)
-	{
-		for (int nCount = 0; nCount < MAX_SCENE; nCount++)
-		{
-			if (m_apScene[nCountPriority][nCount] != NULL)
-			{
-				m_apScene[nCountPriority][nCount]->Update();
-			}
-		}
-	}
-}
-
-//=============================================================================
-// 全体描画関数
-//=============================================================================
-void CScene::DrawAll(void)
-{
-	for (int nCountPriority = 0; nCountPriority < PRIORITY_MAX; nCountPriority++)
-	{
-		for (int nCount = 0; nCount < MAX_SCENE; nCount++)
-		{
-			if (m_apScene[nCountPriority][nCount] != NULL)
-			{
-				m_apScene[nCountPriority][nCount]->Draw();
-			}
-		}
-	}
-}
-
-//=============================================================================
-// 全体破棄関数
-//=============================================================================
-void CScene::ReleaseAll(void)
-{
-	for (int nCountPriority = 0; nCountPriority < PRIORITY_MAX; nCountPriority++)
-	{
-		for (int nCount = 0; nCount < MAX_SCENE; nCount++)
-		{
-			if (m_apScene[nCountPriority][nCount] != NULL)
-			{
-				m_apScene[nCountPriority][nCount]->Uninit();
-				m_apScene[nCountPriority][nCount] = NULL;
-			}
-		}
-	}
-}
-
-//=============================================================================
-// シーンの総数取得関数
-//=============================================================================
-int CScene::GetNumAll(void)
-{
-	return m_nNumAll;
-}
-
-//=============================================================================
-// 破棄関数
-//=============================================================================
-void CScene::Release(void)
-{
-	if (m_apScene[m_nPriority][m_nID] != NULL)
-	{
-		int nID = m_nID;
-		int nPriority = m_nPriority;
-		delete m_apScene[nPriority][nID];
-		m_apScene[nPriority][nID] = NULL;
-		m_nNumAll--;
-	}
-}
-
-//=============================================================================
-// 種類を設定
-//=============================================================================
+//******************************************************************************
+// オブジェクトタイプ設定
+//******************************************************************************
 void CScene::SetObjType(OBJTYPE objType)
 {
+	// オブジェクトタイプ代入
 	m_objType = objType;
 }
 
-//=============================================================================
-// 種類を取得
-//=============================================================================
-CScene::OBJTYPE CScene::GetObjType(void)
+//******************************************************************************
+// シーンの取得
+//******************************************************************************
+CScene * CScene::GetScene(int nPriority)
 {
-	return m_objType;
+	// pSceneにm_pTop代入
+	CScene *pScene = m_pTop[nPriority];
+
+	// m_nNextの分だけ回す
+	for (int nCount = INIT_INT; nCount < m_nNext; nCount++)
+	{
+		// NULLチェック
+		if (pScene != NULL)
+		{
+			// Nextの情報の保持
+			CScene *pSceneNext = pScene->m_pNext;
+
+			// Nextの情報をpSceneに入れる
+			pScene = pSceneNext;
+		}
+	}
+
+	// m_nNextの加算
+	m_nNext++;
+
+	// pSceneがNULLの時
+	if (pScene == NULL)
+	{
+		m_nNext = INIT_INT;
+	}
+	// ポインタを返す
+	return pScene;
 }
 
-//=============================================================================
-// 取得
-//=============================================================================
-CScene * CScene::GetScene(int nPriority, int nCnt)
+//******************************************************************************
+// 全破棄処理関数
+//******************************************************************************
+void CScene::ReleaseAll(void)
 {
-	return m_apScene[nPriority][nCnt];
+	// オブジェクトタイプの最大数分繰り返す
+	for (int nCount = INIT_INT; nCount < OBJTYPE_MAX; nCount++)
+	{
+		// pSceneにm_pTopを代入
+		CScene *pScene = m_pTop[nCount];
+
+		// pSceneがNULLでない場合
+		while (pScene != NULL)
+		{
+			// pSaveにpSceneのm_pNextを保存
+			CScene *pSave = pScene->m_pNext;
+			// 終了
+			pScene->Release();
+			// pSceneにpSaveを代入
+			pScene = pSave;
+		}
+	}
+	// オブジェクトタイプの最大数分繰り返す
+	for (int nCount = INIT_INT; nCount < OBJTYPE_MAX; nCount++)
+	{
+		// pSceneにm_pTopを代入
+		CScene *pScene = m_pTop[nCount];
+
+		// pSceneがNULLでない場合
+		while (pScene != NULL)
+		{
+			// pSaveにpSceneのm_pNextを代入
+			CScene *pSave = pScene->m_pNext;
+
+			// pSceneの死亡m_bDeathtrueの場合
+			if (pScene->m_bDeath == true)
+			{
+				// pSceneのm_pPrevがNULLでない場合
+				if (pScene->m_pPrev != NULL)
+				{
+					// pSceneのm_pPrevのm_pNextをpSceneのm_pNextにする
+					pScene->m_pPrev->m_pNext = pScene->m_pNext;
+				}
+				// pSceneのm_pNextがNULLでない場合
+				if (pScene->m_pNext != NULL)
+				{
+					// pSceneのm_pNextのm_pPrevをpSceneのm_pPrevにする 
+					pScene->m_pNext->m_pPrev = pScene->m_pPrev;
+				}
+				// m_pTopがpSceneの場合
+				if (m_pTop[nCount] == pScene)
+				{
+					// m_pTopをpSceneのm_pNextにする
+					m_pTop[nCount] = pScene->m_pNext;
+				}
+				// m_pCurがpSceneの場合
+				if (m_pCur[nCount] == pScene)
+				{
+					// m_pCurをpSceneのm_pPrevにする
+					m_pCur[nCount] = pScene->m_pPrev;
+				}
+
+				// オブジェクトを破棄
+				delete pScene;
+			}
+
+			// pSceneに保存していたポインタを代入
+			pScene = pSave;
+		}
+	}
+}
+//******************************************************************************
+// 指定破棄関数
+//******************************************************************************
+void CScene::DesignationReleaseAll(OBJTYPE type)
+{
+	// オブジェクトタイプ最大数分繰り返す
+	for (int nCount = INIT_INT; nCount < OBJTYPE_MAX; nCount++)
+	{
+		// 指定したタイプ出ない場合
+		if (nCount != type)
+		{
+			// pSceneにm_pTopを代入
+			CScene *pScene = m_pTop[nCount];
+
+			// pSceneがNULLになるまで繰り返す
+			while (pScene != NULL)
+			{
+				//終了処理
+				CScene *pSave = pScene->m_pNext;
+				pScene->Release();
+				pScene = pSave;
+			}
+		}
+	}
+
+	// オブジェクトタイプ最大数分繰り返す
+	for (int nCount = INIT_INT; nCount < OBJTYPE_MAX; nCount++)
+	{
+		// pSceneにm_pTopを代入
+		CScene *pScene = m_pTop[nCount];
+
+		// pSceneがNULLになるまで繰り返す
+		while (pScene != NULL)
+		{
+			// pSceneのm_pNextを保存
+			CScene *pSave = pScene->m_pNext;
+
+			// 死亡フラグがtrueの場合
+			if (pScene->m_bDeath == true)
+			{
+				// pSceneのm_pPrevがNULLでない場合
+				if (pScene->m_pPrev != NULL)
+				{
+					// pSceneのm_pPrevのm_pNextをpSceneのm_pNextにする
+					pScene->m_pPrev->m_pNext = pScene->m_pNext;
+				}
+				// pSceneのm_pNextがNULLでない場合
+				if (pScene->m_pNext != NULL)
+				{
+					// pSceneのm_pNextのm_pPrevをpSceneのm_pPrevにする
+					pScene->m_pNext->m_pPrev = pScene->m_pPrev;
+				}
+				// pSceneがm_pTopだった場合
+				if (m_pTop[nCount] == pScene)
+				{
+					// m_pTopをpSceneのm_pNextにする
+					m_pTop[nCount] = pScene->m_pNext;
+				}
+				// pSceneがm_pCurとだった場合
+				if (m_pCur[nCount] == pScene)
+				{
+					// m_pCurをpSceneのm_pPrevにする
+					m_pCur[nCount] = pScene->m_pPrev;
+				}
+
+				//オブジェクトを破棄
+				delete pScene;
+			}
+			// pSceneに保存していたのを代入する
+			pScene = pSave;
+		}
+	}
+}
+//******************************************************************************
+// 更新停止関数
+//******************************************************************************
+void CScene::SetUpdateStop(bool bUpdateStop)
+{
+	m_bUpdateStop = bUpdateStop;
+}
+
+//******************************************************************************
+// 全更新処理
+//******************************************************************************
+void CScene::UpdateAll(void)
+{
+	// 更新停止変数がfalseの場合
+	if (m_bUpdateStop == false)
+	{
+		// オブジェクトタイプの最大数分繰り返す
+		for (int nCount = INIT_INT; nCount < OBJTYPE_MAX; nCount++)
+		{
+			// pSceneにm_pTopを代入
+			CScene *pScene = m_pTop[nCount];
+
+			// pSceneがNULLになるまで繰り返す
+			while (pScene != NULL)
+			{
+				// pSceneのm_pNextを保存
+				CScene *pSave = pScene->m_pNext;
+
+				// 死亡フラグがfalseの場合
+				if (pScene->m_bDeath == false)
+				{
+					//更新処理
+					pScene->Update();
+				}
+				// 保存していたものを代入
+				pScene = pSave;
+			}
+		}
+	}
+	else
+	{
+		// pSceneにm_pTopを代入
+		CScene *pScene = m_pTop[OBJTYPE_FADE];
+
+		// pSceneがNULLになるまで繰り返す
+		while (pScene != NULL)
+		{
+			// pSceneのm_pNextを保存
+			CScene *pSave = pScene->m_pNext;
+
+			// 死亡フラグがfalseの場合
+			if (pScene->m_bDeath == false)
+			{
+				//更新処理
+				pScene->Update();
+			}
+			// 保存していたものを代入
+			pScene = pSave;
+		}
+	}
+	// オブジェクトタイプの最大数分繰り返す
+	for (int nCount = INIT_INT; nCount < OBJTYPE_MAX; nCount++)
+	{
+		// pSceneにm_pTopを代入
+		CScene *pScene = m_pTop[nCount];
+
+		// pSceneがNULLになるまで繰り返す
+		while (pScene != NULL)
+		{
+			// pSceneのm_pNextを保存
+			CScene *pSave = pScene->m_pNext;
+
+			// 死亡フラグがtrueの場合
+			if (pScene->m_bDeath == true)
+			{
+				// pSceneのm_pPrevがNULLでない場合
+				if (pScene->m_pPrev != NULL)
+				{
+					// pSceneのm_pPrevのm_pNextをpSceneのm_pNextにする
+					pScene->m_pPrev->m_pNext = pScene->m_pNext;
+				}
+				// pSceneのm_pNextがNULLでない場合
+				if (pScene->m_pNext != NULL)
+				{
+					// pSceneのm_pNextのm_pPrevをpSceneのm_pPrevにする
+					pScene->m_pNext->m_pPrev = pScene->m_pPrev;
+				}
+				// pSceneがm_pTopだった場合
+				if (m_pTop[nCount] == pScene)
+				{
+					// m_pTopをpSceneのm_pNextにする
+					m_pTop[nCount] = pScene->m_pNext;
+				}
+				// pSceneがm_pCurとだった場合
+				if (m_pCur[nCount] == pScene)
+				{
+					// m_pCurをpSceneのm_pPrevにする
+					m_pCur[nCount] = pScene->m_pPrev;
+				}
+
+				//オブジェクトを破棄
+				delete pScene;
+			}
+			// 保存をしていたものを代入
+			pScene = pSave;
+		}
+	}
+}
+
+//******************************************************************************
+// 全描画関数
+//******************************************************************************
+void CScene::DrawAll(void)
+{
+	// オブジェクトタイプの最大数分繰り返す
+	for (int nCountpriority = INIT_INT; nCountpriority < OBJTYPE_MAX; nCountpriority++)
+	{
+		// pSceneにm_pTopを代入
+		CScene*pScene = m_pTop[nCountpriority];
+		CScene*pSceneNext = NULL;
+
+		// pSceneがNULLになるまで繰り返す
+		while (pScene != NULL)
+		{
+			// pSceneNextにpSceneのm_pNextを代入
+			pSceneNext = pScene->m_pNext;
+
+			// 描画
+			pScene->Draw();
+
+			// pSceneにpSceneNextを代入
+			pScene = pSceneNext;
+		}
+	}
+}
+
+//******************************************************************************
+// 死亡フラグを立てる関数
+//******************************************************************************
+void CScene::Release(void)
+{
+	//死亡フラグを立てる
+	m_bDeath = true;
 }

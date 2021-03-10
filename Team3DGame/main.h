@@ -27,6 +27,10 @@
 #define NUM_POLYGON		(2)
 #define NUM_VERTEX		(4)
 #define REMAINDER (0)
+#define INIT_INT			(0)														// int型初期化
+#define INIT_FLOAT			(0.0f)													// float型初期化
+#define INIT_D3DXVECTOR3	(D3DXVECTOR3(0.0f,0.0f,0.0f))							// D3DXVECTOR3初期化
+#define INIT_COLOR			(D3DXCOLOR(0.0f,0.0f,0.0f,0.0f))						// D3DXCOLOR初期化
 
 //*****************************************************************************
 // ライブラリファイルのリンク

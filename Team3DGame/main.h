@@ -31,7 +31,8 @@
 #define INIT_FLOAT			(0.0f)													// float型初期化
 #define INIT_D3DXVECTOR3	(D3DXVECTOR3(0.0f,0.0f,0.0f))							// D3DXVECTOR3初期化
 #define INIT_COLOR			(D3DXCOLOR(0.0f,0.0f,0.0f,0.0f))						// D3DXCOLOR初期化
-
+#define DEFAULT_VECTOR (D3DXVECTOR3(0.0f,0.0f,0.0f))
+#define DEFAULT_SCALE (D3DXVECTOR3(1.0f,1.0f,1.0f))
 //*****************************************************************************
 // ライブラリファイルのリンク
 //*****************************************************************************

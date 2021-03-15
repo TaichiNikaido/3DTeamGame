@@ -135,21 +135,21 @@ void CPlayer::Move(void)
 		rot.y -= D3DXToRadian(2);
 	}
 	// プレイヤーの前にポータル設置
-	// 青ポータル
-	if (pInput->GetKeyboardTrigger(DIK_Z))
-	{
-		m_pPortal->SetPortal(D3DXVECTOR3(pos.x, pos.y + 300.0f, pos.z), rot,CCameraPortal::COL_BLUE);
-	}
-	// オレンジポータル
-	if (pInput->GetKeyboardTrigger(DIK_X))
-	{
-		m_pPortal->SetPortal(D3DXVECTOR3(pos.x, pos.y + 300.0f, pos.z), rot,CCameraPortal::COL_ORANGE);
-	}
-	// portalリセット
-	if (pInput->GetKeyboardTrigger(DIK_C))
-	{
-		m_pPortal->ResetPortal();
-	}
+	//// 青ポータル
+	//if (pInput->GetKeyboardTrigger(DIK_Z))
+	//{
+	//	m_pPortal->SetPortal(D3DXVECTOR3(pos.x, pos.y + 300.0f, pos.z), rot,CCameraPortal::COL_BLUE);
+	//}
+	//// オレンジポータル
+	//if (pInput->GetKeyboardTrigger(DIK_X))
+	//{
+	//	m_pPortal->SetPortal(D3DXVECTOR3(pos.x, pos.y + 300.0f, pos.z), rot,CCameraPortal::COL_ORANGE);
+	//}
+	//// portalリセット
+	//if (pInput->GetKeyboardTrigger(DIK_C))
+	//{
+	//	m_pPortal->ResetPortal();
+	//}
 
 	// 慣性の計算
 	m_move.x += (0.0f - m_move.x) * FRICTION;

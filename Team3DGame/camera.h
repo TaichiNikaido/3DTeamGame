@@ -33,6 +33,7 @@ public:
 	void SetCamera(void);
 	D3DXVECTOR3 GetRotation(void) { return m_Rotation; }
 private:
+	void DataLoad(void);
 	D3DXVECTOR3 m_PositionV;		//視点の位置
 	D3DXVECTOR3 m_PositionR;		//注視点の位置
 	D3DXVECTOR3 m_VectorU;			//上方向ベクトル
@@ -40,5 +41,6 @@ private:
 	D3DXMATRIX m_MtxProjection;		//プロジェクションマトリックス
 	D3DXMATRIX m_MtxView;			//ビューマトリックス
 	float m_fDistance;				//視点と注視点の距離
+	float m_fPlayerDistance;		//プレイヤーとの距離
 };
 #endif

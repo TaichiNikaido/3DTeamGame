@@ -1,58 +1,57 @@
-//=============================================================================
+//====================================================================
 //
-// モデル管理処理 [model.h]
-// Author : 二階堂汰一
+// シーン上の3Dモデル処理 (model.h)
+// Author : 樋宮匠
 //
-//=============================================================================
+//====================================================================
 #ifndef _MODEL_H_
 #define _MODEL_H_
 
-//*****************************************************************************
-// ヘッダファイルのインクルード
-//*****************************************************************************
-#include "scene3d.h"
+//================================================
+// インクルードファイル
+//================================================
+#include "main.h"
+#include "scene.h"
 
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define MAX_PARTS (30)			//最大パーツ数
-#define MAX_MATERIAL (60)		//最大マテリアル数
 
-//*****************************************************************************
-// 前方宣言
-//*****************************************************************************
+//================================================
+// クラス宣言
+//================================================
 
-//*****************************************************************************
-// クラス定義
-//*****************************************************************************
-class CModel : public CScene3d
+// 3Dポリゴンクラス
+class CModel
 {
 public:
-	typedef struct
-	{
-		LPD3DXBUFFER pBuffMat;						//マテリアル情報へのポインタ
-		DWORD nNumMat;								//マテリアル情報の数
-		LPD3DXMESH pMesh;							//メッシュ情報へのポインタ
-		LPDIRECT3DTEXTURE9 pTexture[MAX_MATERIAL];	//テクスチャへのポインタ
-		D3DXMATRIX mtxWorld;						//ワールド変換行列
-		CModel *pParent;							//親のモデルへのポインタ
-		int nIndexModelParent;						//親モデルのインデックス
-	}MODEL_DATA;
 	CModel();
 	~CModel();
-	static char * LoadModelText(const char *cText);
-	static CModel* Create(MODEL_DATA modeldata);
-	HRESULT Init(void);
+	HRESULT Init(D3DXVECTOR3 pos, D3DXVECTOR3 size);
 	void Uninit(void);
 	void Update(void);
-	void Draw(void);
-	void SetParentModel(CModel * pParentModel);
-	void SetModel(D3DXVECTOR3 Position, D3DXVECTOR3 Rotation, D3DXVECTOR3 Size);
-	void BindModel(MODEL_DATA ModelData) { m_ModelData = ModelData; }
-	void BindTexture(LPDIRECT3DTEXTURE9 pTexture, int nCount);
-	MODEL_DATA GetModelData(void) { return m_ModelData; }
+	void Draw(CModel *model);
+	void Draw(D3DXVECTOR3 pos, D3DXVECTOR3 rot);
+	void BindMesh(const LPD3DXMESH pMesh, const  LPD3DXBUFFER pBuffMat, const DWORD nNumMat);
+	void SetRot(D3DXVECTOR3 rot) { m_rot = rot; }
+	void SetScale(D3DXVECTOR3 scale) { m_scale = scale; }
+	void SetPos(D3DXVECTOR3 pos) { m_pos = pos; }
+	D3DXVECTOR3 GetPos(void) { return m_pos; }
+	D3DXVECTOR3 GetRot(void) { return m_rot; }
+	D3DXMATRIX GetWorldMtx(void) { return m_mtxWorld; }
+
+	//LPDIRECT3DVERTEXBUFFER9 GetVtxBuff(void) { return m_pVtxBuff; }
+
 private:
-	MODEL_DATA m_ModelData;			//モデルデータ
-	D3DXVECTOR3 m_WorldPosition;	//ワールド座標
+	LPD3DXMESH				m_pMesh;
+	LPD3DXBUFFER			m_pBuffMat;
+	DWORD					m_nNumMat;
+	D3DXMATRIX			    m_mtxWorld;		// ワールドマトリックス
+	D3DXVECTOR3				m_pos;			// 座標
+	D3DXVECTOR3				m_rot;			// 回転
+	D3DXVECTOR3				m_scale;
+
+	//LPDIRECT3DVERTEXBUFFER9 m_pVtxBuff;		// 頂点バッファへのポインタ
 };
+
 #endif

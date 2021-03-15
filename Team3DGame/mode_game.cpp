@@ -14,6 +14,7 @@
 #include "mode_game.h"
 #include "camera.h"
 #include "light.h"
+#include "player.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -143,6 +144,7 @@ void CGameMode::InitCreateAll(void)
 		//ライトの初期化処理関数呼び出し
 		m_pLight->Init();
 	}
+	m_pPlayer = CPlayer::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	//もしカメラのポインタがNULLの場合
 	if (m_pCamera == NULL)
 	{

@@ -14,6 +14,7 @@
 #include "mode_game.h"
 #include "camera.h"
 #include "light.h"
+#include "field.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -155,6 +156,8 @@ void CGameMode::InitCreateAll(void)
 		//カメラの初期化処理関数呼び出し
 		m_pCamera->Init();
 	}
+
+	CField::Create();
 }
 
 //=============================================================================

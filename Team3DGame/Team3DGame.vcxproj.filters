@@ -31,6 +31,12 @@
     <Filter Include="ヘッダー ファイル\Mode">
       <UniqueIdentifier>{4d4c4cc3-58ad-44cd-aaa3-cf582ece8026}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\CField">
+      <UniqueIdentifier>{06fbe65f-35e4-493d-81de-c5436c730eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\CField">
+      <UniqueIdentifier>{8db8e90e-c57f-4ef8-9421-76ff032e2d60}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="billboard.cpp">
@@ -93,6 +99,12 @@
     <ClCompile Include="mode_tutorial.cpp">
       <Filter>ソース ファイル\Mode</Filter>
     </ClCompile>
+    <ClCompile Include="field.cpp">
+      <Filter>ソース ファイル\CField</Filter>
+    </ClCompile>
+    <ClCompile Include="tile.cpp">
+      <Filter>ソース ファイル\CField</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="billboard.h">
@@ -154,6 +166,12 @@
     </ClInclude>
     <ClInclude Include="mode_tutorial.h">
       <Filter>ヘッダー ファイル\Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
+      <Filter>ヘッダー ファイル\CField</Filter>
+    </ClInclude>
+    <ClInclude Include="tile.h">
+      <Filter>ヘッダー ファイル\CField</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

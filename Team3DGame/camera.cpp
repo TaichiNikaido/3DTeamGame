@@ -15,6 +15,7 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "camera.h"
+#include "field.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -54,6 +55,9 @@ CCamera::~CCamera()
 //=============================================================================
 HRESULT CCamera::Init(void)
 {
+	m_PositionV = D3DXVECTOR3(TILE_SIZE * 5.0f, 800.0f, 0.0f);
+	m_PositionR = D3DXVECTOR3(TILE_SIZE * 5.0f, 0.0f, TILE_SIZE * 2.0f);
+	m_VectorU = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
 	return S_OK;
 }
 
@@ -87,7 +91,7 @@ void CCamera::SetCamera(void)
 	//プロジェクションマトリックスの初期化
 	D3DXMatrixIdentity(&m_MtxProjection);
 	//プロジェクションマトリックスの作成
-	D3DXMatrixPerspectiveFovLH(&m_MtxProjection, D3DXToRadian(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 10.0f, 10000.0f);
+	D3DXMatrixPerspectiveFovLH(&m_MtxProjection, D3DXToRadian(90.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 10.0f, 10000.0f);
 	//プロジェクションマトリックスの設定
 	pDevice->SetTransform(D3DTS_PROJECTION, &m_MtxProjection);
 }

@@ -150,6 +150,7 @@
     <ClCompile Include="billboard.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="daiya.cpp" />
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="fade.cpp" />
@@ -162,11 +163,13 @@
     <ClCompile Include="light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="manager.cpp" />
+    <ClCompile Include="meat.cpp" />
     <ClCompile Include="model.cpp" />
     <ClCompile Include="mode_game.cpp" />
     <ClCompile Include="mode_title.cpp" />
     <ClCompile Include="mode_tutorial.cpp" />
     <ClCompile Include="ainimation.cpp" />
+    <ClCompile Include="number.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="polygon3d.cpp" />
     <ClCompile Include="renderer.cpp" />
@@ -175,12 +178,14 @@
     <ClCompile Include="scene3d.cpp" />
     <ClCompile Include="sound.cpp" />
     <ClCompile Include="stan_effect.cpp" />
+    <ClCompile Include="ui.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animation.h" />
     <ClInclude Include="billboard.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="daiya.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="fade.h" />
@@ -193,11 +198,13 @@
     <ClInclude Include="light.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="manager.h" />
+    <ClInclude Include="meat.h" />
     <ClInclude Include="model.h" />
     <ClInclude Include="mode_game.h" />
     <ClInclude Include="mode_title.h" />
     <ClInclude Include="mode_tutorial.h" />
     <ClInclude Include="motion.h" />
+    <ClInclude Include="number.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="polygon3d.h" />
     <ClInclude Include="renderer.h" />
@@ -206,6 +213,7 @@
     <ClInclude Include="scene3d.h" />
     <ClInclude Include="sound.h" />
     <ClInclude Include="stan_effect.h" />
+    <ClInclude Include="ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,110 +1,11 @@
-﻿  player.cpp
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(311): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: 'fopen' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(321): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(332): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(342): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(347): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(355): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(361): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(367): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(375): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(383): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(389): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(397): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(403): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(417): error C2084: 関数 'void CPlayer::Input(void)' は既に本体を持っています。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(187): note: 'Input' の以前の定義を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(465): error C2084: 関数 'void CPlayer::Move(void)' は既に本体を持っています。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(235): note: 'Move' の以前の定義を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(498): error C2084: 関数 'void CPlayer::Hit(void)' は既に本体を持っています。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(268): note: 'Hit' の以前の定義を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(513): error C2084: 関数 'void CPlayer::Death(void)' は既に本体を持っています。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(283): note: 'Death' の以前の定義を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(524): error C2084: 関数 'void CPlayer::DataLoad(void)' は既に本体を持っています。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(294): note: 'DataLoad' の以前の定義を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(540): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: 'fopen' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(550): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(561): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(571): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(576): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(584): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(590): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(596): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(604): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(612): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(618): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(626): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\player.cpp(632): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-  mode_game.cpp
-c:\users\gsp025\desktop\3dteamgame\team3dgame\mode_game.cpp(147): error C2660: 'CPlayer::Create': 関数に 2 個の引数を指定できません。
-  item_meat.cpp
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(117): warning C4805: '==': 演算中の 'void' 型と 'bool' 型の混用は安全ではありません
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(117): error C2120: void 型が他の型と同時に使われました。
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(130): error C2065: 'CEnemy': 定義されていない識別子です。
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(130): error C2065: 'pEnemy': 定義されていない識別子です。
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(130): error C2039: 'GetEnemy': 'CGameMode' のメンバーではありません。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\mode_game.h(30): note: 'CGameMode' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(130): error C3861: 'GetEnemy': 識別子が見つかりませんでした
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(132): error C2065: 'pEnemy': 定義されていない識別子です。
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(135): error C2065: 'pEnemy': 定義されていない識別子です。
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(135): error C2227: '->Eat' : 左側がクラス、構造体、共用体、ジェネリック型へのポインターではありません。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\item_meat.cpp(135): note: 型は 'unknown-type' です。
+﻿  stan_effect.cpp
   item_diamond.cpp
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_diamond.cpp(118): warning C4805: '==': 演算中の 'void' 型と 'bool' 型の混用は安全ではありません
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_diamond.cpp(118): error C2120: void 型が他の型と同時に使われました。
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_diamond.cpp(135): error C2027: 認識できない型 'CPlayer' が使われています。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\mode_game.h(24): note: 'CPlayer' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\item_diamond.cpp(135): error C2227: '->AddDiamond' : 左側がクラス、構造体、共用体、ジェネリック型へのポインターではありません。
-  enemy.cpp
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(131): error C2039: 'TYPE_ENEMY': 'CAnimation' のメンバーではありません。
-  c:\users\gsp025\desktop\3dteamgame\team3dgame\character.h(33): note: 'CAnimation' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(131): error C2065: 'TYPE_ENEMY': 定義されていない識別子です。
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(223): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: 'fopen' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(234): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(245): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(255): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(260): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(266): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(272): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(278): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(284): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(290): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
-c:\users\gsp025\desktop\3dteamgame\team3dgame\enemy.cpp(296): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: 'sscanf' の宣言を確認してください
   コードを生成中...
+  コンパイル中...
+  player.cpp
+  mode_game.cpp
+  manager.cpp
+  camera.cpp
+  コードを生成中...
+  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.exe
+  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.pdb (Full PDB)

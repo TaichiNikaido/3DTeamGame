@@ -31,21 +31,15 @@ public:
 	// モデルの各パーツ
 	typedef enum
 	{
-		PARTS_HIP = 0,
-		PARTS_BODY,
+		PARTS_BODY = 0,
 		PARTS_HEAD,
-		PARTS_RSHOULDER,
 		PARTS_RARM,
 		PARTS_RHAND,
-		PARTS_LSHOULDER,
 		PARTS_LARM,
 		PARTS_LHAND,
-		PARTS_RTHIGH,
 		PARTS_RLEG,
-		PARTS_RFOOT,
-		PARTS_LTHIGH,
+		PARTS_RSHOE,
 		PARTS_LLEG,
-		PARTS_LFOOT,
 		PARTS_LSHOE,
 		PARTS_MAX,
 	}PARTS;
@@ -77,10 +71,13 @@ public:
 	void AddDiamond(int nValue) { m_nDiamond += nValue; }
 	int GetMeat(void) { return m_nMeat; }
 	int GetDiamond(void) { return m_nDiamond; }
+	bool GetbHit(void) { return m_bHit; }
 	STATE GetState(void) { return m_State; }
 private:
 	void Input(void);
 	void Move(void);
+	void AutoRun(void);
+	void Gravity(void);
 	void Death(void);
 	void DataLoad(void);
 	static LPDIRECT3DTEXTURE9 m_pTexture;
@@ -97,7 +94,9 @@ private:
 	float m_fAutoRunSpeed;									//オートランの速度
 	float m_fLeftRightSpeed;								//左右移動速度
 	float m_fJumpPower;										//ジャンプ力
+	float m_fGravity;										//重力
 	bool m_bHit;											//ヒットしたか
+	bool m_bJump;											//ジャンプしたかどうが
 	STATE m_State;											//状態
 	INPUT m_Input;											//入力
 };

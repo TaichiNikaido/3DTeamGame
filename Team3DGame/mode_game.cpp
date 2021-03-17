@@ -15,6 +15,7 @@
 #include "camera.h"
 #include "light.h"
 #include "player.h"
+#include "enemy.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -25,8 +26,7 @@
 //*****************************************************************************
 CCamera * CGameMode::m_pCamera = NULL;	//カメラのポインタ
 CPlayer * CGameMode::m_pPlayer = NULL;	//プレイヤーのポインタ
-CDragon * CGameMode::m_pDragon = NULL;	//ドラゴンのポインタ
-CStage * CGameMode::m_pStage = NULL;	//ステージのポインタ
+CEnemy * CGameMode::m_pEnemy = NULL;	//敵のポインタ
 
 //=============================================================================
 // コンストラクタ
@@ -144,7 +144,8 @@ void CGameMode::InitCreateAll(void)
 		//ライトの初期化処理関数呼び出し
 		m_pLight->Init();
 	}
-	m_pPlayer = CPlayer::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	m_pPlayer = CPlayer::Create();
+	m_pEnemy = CEnemy::Create();
 	//もしカメラのポインタがNULLの場合
 	if (m_pCamera == NULL)
 	{

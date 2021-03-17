@@ -37,6 +37,7 @@ public:
 		TYPE_NONE = 0,
 		TYPE_HUMAN,		// プレイヤー
 		TYPE_SWITCH,	// 加重スイッチ
+		TYPE_ENEMY,
 		TYPE_MAX		// 最大値
 	}ANIM_TYPE;
 

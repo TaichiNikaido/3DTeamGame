@@ -150,8 +150,12 @@
     <ClCompile Include="billboard.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="enemy.cpp" />
     <ClCompile Include="fade.cpp" />
     <ClCompile Include="input.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="item_diamond.cpp" />
+    <ClCompile Include="item_meat.cpp" />
     <ClCompile Include="joystick.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="light.cpp" />
@@ -175,8 +179,12 @@
     <ClInclude Include="billboard.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="enemy.h" />
     <ClInclude Include="fade.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="item_diamond.h" />
+    <ClInclude Include="item_meat.h" />
     <ClInclude Include="joystick.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="light.h" />

@@ -14,8 +14,8 @@ PARAMETER_SET
 POS = 0.0 0.0 0.0					# 位置
 SIZE = 1.0 1.0 1.0					# サイズ
 COLLISION_SIZE = 0.0 0.0 0.0		# 衝突判定用サイズ
-ROT = 0.0 0.0 0.0					# 回転
-Meat = 0							# 肉の所持数
+ROT = 0.0 180.0 0.0					# 回転
+Meat = 3							# 肉の所持数
 StunTime = 120						# スタン時間
 AutoRunSpeed = 3.0					# オートランの速度
 LeftRightSpeed = 1.0				# 左右移動の速度

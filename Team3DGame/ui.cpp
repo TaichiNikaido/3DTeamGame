@@ -16,7 +16,7 @@
 //================================================
 // 静的メンバ変数宣言
 //================================================
-LPDIRECT3DTEXTURE9 CUi::m_apTexture[UI_TYPE] = {};
+LPDIRECT3DTEXTURE9 CUi::m_apTexture[UITYPE_MAX] = {};
 
 //================================================
 // クリエイト処理
@@ -47,17 +47,17 @@ HRESULT CUi::Load(void)
 
 	// ダイヤ
 	D3DXCreateTextureFromFile(pDevice,
-		"data/Texture/Daiya.png", //ファイルの読み込み
+		"Data/Texture/Daiya.png", //ファイルの読み込み
 		&m_apTexture[UITYPE_DAIYA]);
 
 	// 肉
 	D3DXCreateTextureFromFile(pDevice,
-		"data/Texture/Meat.png", //ファイルの読み込み
+		"Data/Texture/Meat.png", //ファイルの読み込み
 		&m_apTexture[UITYPE_MEAT]);
 
 	// 警報
 	D3DXCreateTextureFromFile(pDevice,
-		"data/Texture/WinMark.png", //ファイルの読み込み
+		"Data/Texture/WinMark.png", //ファイルの読み込み
 		&m_apTexture[UITYPE_WARNING]);
 
 	return S_OK;
@@ -68,7 +68,7 @@ HRESULT CUi::Load(void)
 //================================================
 void CUi::Unload(void)
 {
-	for (int nCount = 0; nCount < UI_TYPE; nCount++)
+	for (int nCount = 0; nCount < UITYPE_MAX; nCount++)
 	{
 		//テクスチャの開放
 		if (m_apTexture[nCount] != NULL)
@@ -89,8 +89,8 @@ CUi::CUi(int nPriority) :CScene2d(nPriority)
 	m_size = (D3DXVECTOR3(0.0f, 0.0f, 0.0f));		// サイズ
 	m_col = (D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f));	// カラー
 	m_type = UITYPE_NONE;							// タイプ
-	m_nColCounter = 0;									// カウンター
-	m_nEraseCounter = 0;									// 使用しているかどうか
+	m_nColCounter = 0;								// カウンター
+	m_nEraseCounter = 0;							// 使用しているかどうか
 }
 
 //================================================

@@ -46,6 +46,7 @@
 #define STANEFFECT_ROT	(D3DXVECTOR3(0.0f,0.0f,0.0f))			// スタンエフェクト向き
 #define STANEFFECT_COL	(D3DXCOLOR(1.0f,1.0f,1.0f,1.0f))		// スタンエフェクトカラー
 #define STANEFFECT_LENGTH	(50.0f)								// スタンエフェクト距離
+
 //*****************************************************************************
 // 静的メンバ変数宣言
 //*****************************************************************************
@@ -310,13 +311,14 @@ void CPlayer::Move(void)
 		}
 	}
 	//位置更新
-	Position += m_Move;
+	Position.x += m_Move.x;
+	Position.y += m_Move.y;
 	//位置を設定する
 	SetPos(Position);
 }
 
 //=============================================================================
-// オートラン処理関数関数
+// オートラン処理関数
 //=============================================================================
 void CPlayer::AutoRun(void)
 {
@@ -325,7 +327,7 @@ void CPlayer::AutoRun(void)
 	//移動させる
 	m_Move.z = m_fAutoRunSpeed;
 	//位置更新
-	Position += m_Move;
+	Position.z += m_Move.z;
 	//位置を設定する
 	SetPos(Position);
 }
@@ -348,7 +350,7 @@ void CPlayer::Gravity(void)
 	//重力をかける
 	m_Move.y = m_fGravity;
 	//位置更新
-	Position += m_Move;
+	Position.y += m_Move.y;
 	//位置を設定する
 	SetPos(Position);
 }
@@ -459,7 +461,7 @@ void CPlayer::DataLoad(void)
 								//回転情報の読み込み
 								sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &Rotation.x, &Rotation.y, &Rotation.z);
 								//回転を設定する
-								SetRot(Rotation);
+								SetRot(D3DXToRadian(Rotation));
 							}
 							//現在のテキストがMeatだったら
 							if (strcmp(aCurrentText, "Meat") == 0)

@@ -45,11 +45,7 @@ DWORD CEnemy::m_nNumMat[PARTS_MAX] = {};
 //=============================================================================
 CEnemy::CEnemy()
 {
-	m_Position = INITIAL_POSITION;					//位置
-	m_PositionOld = INITIAL_POSITION;				//前の位置
 	m_Size = INITIAL_SIZE;							//サイズ
-	m_CollisionSize = INITIAL_COLLISIION_SIZE;		//当たり判定用サイズ
-	m_Rotation = INITIAL_ROTATION;					//回転
 	m_Move = INITIAL_MOVE;							//移動量
 	m_nMeatEatTime = MINIMUM_TIME;					//肉を食べる時間
 	m_nMeatEatTimeCount = MINIMUM_TIME;				//肉を食べる時間のカウント
@@ -57,6 +53,7 @@ CEnemy::CEnemy()
 	m_nAttackCoolTimeCount = MINIMUM_TIME;			//攻撃のクールタイムのカウント
 	m_fAutoRunSpeed = INITIAL_MOVE_SPEED;			//オートランの速度
 	m_bEat = false;									//食事をしているか
+	m_bAttack = false;								//攻撃をしたか
 }
 
 //=============================================================================
@@ -128,6 +125,8 @@ CEnemy * CEnemy::Create(void)
 //=============================================================================
 HRESULT CEnemy::Init(void)
 {
+	//スクリプトデータ読み込み関数
+	DataLoad();
 	// パーツ数を設定
 	SetPartNum(PARTS_MAX);
 
@@ -138,12 +137,8 @@ HRESULT CEnemy::Init(void)
 
 	// 座標・親子関係の読み込み
 	LoadModelData("./Data/text/motion_enemy.txt");
-
+	//キャラクターの初期化処理関数呼び出し
 	CCharacter::Init();
-
-	SetPos(INITIAL_POSITION);
-
-
 	return S_OK;
 }
 
@@ -152,6 +147,7 @@ HRESULT CEnemy::Init(void)
 //=============================================================================
 void CEnemy::Uninit()
 {
+	//キャラクターの終了処理関数呼び出し
 	CCharacter::Uninit();
 }
 
@@ -160,7 +156,22 @@ void CEnemy::Uninit()
 //=============================================================================
 void CEnemy::Update()
 {
+	//キャラクターの更新処理関数呼び出し
 	CCharacter::Update();
+	//オートラン処理関数呼び出し
+	AutoRun();
+	//もし攻撃をしていない場合
+	if (m_bAttack == false)
+	{
+		//攻撃のクールタイムを加算する
+		m_nAttackCoolTimeCount++;
+		//もしクールタイムが終わったら
+		if (m_nAttackCoolTimeCount >= m_nAttackCoolTime)
+		{
+			//攻撃処理関数呼び出し
+			Attack();
+		}
+	}
 }
 
 //=============================================================================
@@ -169,8 +180,23 @@ void CEnemy::Update()
 void CEnemy::Draw()
 {
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-
+	//キャラクターの描画処理関数呼び出し
 	CCharacter::Draw();
+}
+
+//=============================================================================
+// オートラン処理関数
+//=============================================================================
+void CEnemy::AutoRun(void)
+{
+	//位置を取得する
+	D3DXVECTOR3 Position = GetPos();
+	//移動させる
+	m_Move.z = m_fAutoRunSpeed;
+	//位置更新
+	Position += m_Move;
+	//位置を設定する
+	SetPos(Position);
 }
 
 //=============================================================================
@@ -178,6 +204,14 @@ void CEnemy::Draw()
 //=============================================================================
 void CEnemy::Attack(void)
 {
+	//攻撃をする
+	m_bAttack = true;
+	//クールタイムを0にする
+	m_nAttackCoolTimeCount = MINIMUM_TIME;
+	//プレイヤーに攻撃をする
+	//
+	//攻撃をやめる
+	m_bAttack = false;
 }
 
 //=============================================================================
@@ -213,9 +247,12 @@ void CEnemy::Death(void)
 //=============================================================================
 void CEnemy::DataLoad(void)
 {
-	char aReadText[MAX_TEXT];			//読み込んだテキスト
-	char aCurrentText[MAX_TEXT];		//現在のテキスト
-	char aUnnecessaryText[MAX_TEXT];	//不必要なテキスト
+	D3DXVECTOR3 Position = INITIAL_POSITION;	//位置
+	D3DXVECTOR3 CollisionSize = INITIAL_SIZE;	//サイズ
+	D3DXVECTOR3 Rotation = INITIAL_ROTATION;	//回転
+	char aReadText[MAX_TEXT];					//読み込んだテキスト
+	char aCurrentText[MAX_TEXT];				//現在のテキスト
+	char aUnnecessaryText[MAX_TEXT];			//不必要なテキスト
 	memset(aReadText, NULL, sizeof(aReadText));
 	memset(aCurrentText, NULL, sizeof(aCurrentText));
 	memset(aUnnecessaryText, NULL, sizeof(aUnnecessaryText));
@@ -261,26 +298,30 @@ void CEnemy::DataLoad(void)
 						//現在のテキストがPOSだったら
 						if (strcmp(aCurrentText, "POS") == 0)
 						{
-							//位置の設定
-							sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &m_Position.x, &m_Position.y, &m_Position.z);
+							//位置情報の読み込み
+							sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &Position.x, &Position.y, &Position.z);
+							//位置を設定する
+							SetPos(Position);
 						}
 						//現在のテキストがSIZEだったら
 						if (strcmp(aCurrentText, "SIZE") == 0)
 						{
-							//サイズの設定
+							//サイズ情報の読み込み
 							sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &m_Size.x, &m_Size.y, &m_Size.z);
 						}
 						//現在のテキストがCOLLISION_SIZEだったら
 						if (strcmp(aCurrentText, "COLLISION_SIZE") == 0)
 						{
-							//サイズの設定
-							sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &m_CollisionSize.x, &m_CollisionSize.y, &m_CollisionSize.z);
+							//衝突判定用サイズの読み込み
+							sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &CollisionSize.x, &CollisionSize.y, &CollisionSize.z);
 						}
 						//現在のテキストがROTだったら
 						if (strcmp(aCurrentText, "ROT") == 0)
 						{
 							//回転情報の読み込み
-							sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &m_Rotation.x, &m_Rotation.y, &m_Rotation.z);
+							sscanf(aReadText, "%s %s %f %f %f", &aUnnecessaryText, &aUnnecessaryText, &Rotation.x, &Rotation.y, &Rotation.z);
+							//回転の設定
+							SetRot(D3DXToRadian(Rotation));
 						}
 						//現在のテキストがMeatEatTimeだったら
 						if (strcmp(aCurrentText, "MeatEatTime") == 0)

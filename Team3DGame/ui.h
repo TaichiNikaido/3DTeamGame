@@ -63,7 +63,7 @@ public:
 	void Flashing(void);
 
 private:
-	static LPDIRECT3DTEXTURE9 m_apTexture[UI_TYPE];
+	static LPDIRECT3DTEXTURE9 m_apTexture[UITYPE_MAX];
 	D3DXVECTOR3	m_pos;		// ポリゴンの位置
 	D3DXVECTOR3 m_move;		// ポリゴンの移動量
 	D3DXVECTOR3 m_size;		// ポリゴンのサイズ

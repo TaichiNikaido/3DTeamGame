@@ -53,6 +53,7 @@ public:
 	void Draw(void);
 	void Eat(void);
 private:
+	void AutoRun(void);
 	void Attack(void);
 	void Death(void);
 	void DataLoad(void);
@@ -60,11 +61,7 @@ private:
 	static LPD3DXMESH m_pMesh[PARTS_MAX];
 	static LPD3DXBUFFER m_pBuffMat[PARTS_MAX];
 	static DWORD m_nNumMat[PARTS_MAX];
-	D3DXVECTOR3 m_Position;									//位置
-	D3DXVECTOR3 m_PositionOld;								//前の位置
 	D3DXVECTOR3 m_Size;										//サイズ
-	D3DXVECTOR3 m_CollisionSize;							//当たり判定用サイズ
-	D3DXVECTOR3 m_Rotation;									//回転
 	D3DXVECTOR3 m_Move;										//移動量
 	int m_nMeatEatTime;										//肉を食べる時間
 	int m_nMeatEatTimeCount;								//肉を食べる時間のカウント
@@ -72,5 +69,6 @@ private:
 	int m_nAttackCoolTimeCount;								//攻撃のクールタイムカウント
 	float m_fAutoRunSpeed;									//オートランの速度
 	bool m_bEat;											//食事をしてるかどうか
+	bool m_bAttack;											//攻撃をしたか
 };
 #endif

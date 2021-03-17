@@ -11,8 +11,9 @@
 #include "daiya.h"
 #include "number.h"
 #include "manager.h"
+#include "mode_game.h"
+#include "player.h"
 
-#include "Keyboard.h"
 //================================================
 // 静的メンバ変数宣言
 //================================================
@@ -91,17 +92,23 @@ void CDaiyaUI::Uninit(void)
 //================================================
 void CDaiyaUI::Update(void)
 {
+	CPlayer * pPlayer = CGameMode::GetPlayer();
 	for (int nCount = 0; nCount < DAIYA_MAX_DIGITS; nCount++)
 	{
 		// 更新処理
 		m_apNumber[nCount]->Update();
 	}
-
-	CKeyboard *pKeyboard = CManager::GetKeyboard();
-
-	if (pKeyboard->GetKeyboardTrigger(DIK_A) == TRUE)
+	//もしプレイヤーのポインタがNULLじゃない場合
+	if (pPlayer != NULL)
 	{
-		AddDaiya(1);
+		//プレイヤーのダイアの数を取得する
+		m_nDaiya = pPlayer->GetDiamond();
+	}
+
+	for (int nCount = 0; nCount < DAIYA_MAX_DIGITS; nCount++)
+	{
+		// 表示してる数字に加算させる
+		m_apNumber[nCount]->SetNumber(m_nDaiya % (int)powf(10, DAIYA_MAX_DIGITS - nCount) / powf(10, DAIYA_MAX_DIGITS - nCount - 1));
 	}
 }
 
@@ -123,12 +130,4 @@ void CDaiyaUI::Draw(void)
 //================================================
 void CDaiyaUI::AddDaiya(int nValue)
 {
-	// 呼び出されたら加算する
-	m_nDaiya += nValue;
-
-	for (int nCount = 0; nCount < DAIYA_MAX_DIGITS; nCount++)
-	{
-		// 表示してる数字に加算させる
-		m_apNumber[nCount]->SetNumber(m_nDaiya % (int)powf(10, DAIYA_MAX_DIGITS - nCount) / powf(10, DAIYA_MAX_DIGITS - nCount - 1));
-	}
 }

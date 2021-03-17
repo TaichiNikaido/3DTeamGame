@@ -39,8 +39,6 @@ public:
 	void Uninit(void);
 	void Update(void);
 	void Draw(void);
-
-	void AddMeat(int nValue);		// “÷‚Ì‰ÁŽZ
 	static int GetMeat(void) { return m_nMeat; }	// “÷‚ÌŽæ“¾
 
 private:

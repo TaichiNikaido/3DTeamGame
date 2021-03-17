@@ -11,9 +11,9 @@
 #include "meat.h"
 #include "number.h"
 #include "manager.h"
+#include "mode_game.h"
+#include "player.h"
 
-
-#include "Keyboard.h"
 //================================================
 // 静的メンバ変数宣言
 //================================================
@@ -61,10 +61,6 @@ HRESULT CMeatUI::Init()
 			D3DXVECTOR3(MEAT_NUMBER_SIZE, MEAT_NUMBER_SIZE, 0.0f),
 			CNumber::NUMBERTYPE_MEAT);
 	}
-
-	// 加算
-	AddMeat(0);
-
 	return S_OK;
 }
 
@@ -93,22 +89,23 @@ void CMeatUI::Uninit(void)
 //================================================
 void CMeatUI::Update(void)
 {
+	CPlayer * pPlayer = CGameMode::GetPlayer();
+
 	for (int nCount = 0; nCount < MEATE_MAX_DIGITS; nCount++)
 	{
 		// 更新処理
 		m_apNumber[nCount]->Update();
 	}
-
-	CKeyboard *pKeyboard = CManager::GetKeyboard();
-
-	if (pKeyboard->GetKeyboardTrigger(DIK_S) == TRUE)
+	//もしプレイヤーのポインタがNULLじゃない場合
+	if (pPlayer != NULL)
 	{
-		AddMeat(1);
+		//プレイヤーの肉の数を取得する
+		m_nMeat = pPlayer->GetMeat();
 	}
-
-	if (pKeyboard->GetKeyboardTrigger(DIK_D) == TRUE)
+	for (int nCount = 0; nCount < MEATE_MAX_DIGITS; nCount++)
 	{
-		AddMeat(-1);
+		// 表示してる数字に加算させる
+		m_apNumber[nCount]->SetNumber(m_nMeat % (int)powf(10, MEATE_MAX_DIGITS - nCount) / powf(10, MEATE_MAX_DIGITS - nCount - 1));
 	}
 }
 
@@ -121,21 +118,6 @@ void CMeatUI::Draw(void)
 	{
 		// 描画処理
 		m_apNumber[nCount]->Draw();
-	}
-}
-
-//================================================
-// 肉の加算
-//================================================
-void CMeatUI::AddMeat(int nValue)
-{
-	// 呼び出されたら加算する
-	m_nMeat += nValue;
-
-	for (int nCount = 0; nCount < MEATE_MAX_DIGITS; nCount++)
-	{
-		// 表示してる数字に加算させる
-		m_apNumber[nCount]->SetNumber(m_nMeat % (int)powf(10, MEATE_MAX_DIGITS - nCount) / powf(10, MEATE_MAX_DIGITS - nCount - 1));
 	}
 }
 

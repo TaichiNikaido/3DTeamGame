@@ -24,6 +24,8 @@
 #include "player.h"
 #include "enemy.h"
 #include "effect.h"
+#include "number.h"
+#include "ui.h"
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
@@ -223,6 +225,8 @@ void CManager::LoadAll(void)
 	CPlayer::Load();
 	CEnemy::Load();
 	CEffect::Load();
+	CUi::Load();
+	CNumber::Load();
 }
 
 //=============================================================================
@@ -233,6 +237,8 @@ void CManager::UnloadAll(void)
 	CPlayer::Unload();
 	CEnemy::Unload();
 	CEffect::Unload();
+	CUi::Unload();
+	CNumber::Unload();
 }
 
 //=============================================================================

@@ -16,6 +16,8 @@
 #include "light.h"
 #include "player.h"
 #include "enemy.h"
+#include "meat.h"
+#include "daiya.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -132,6 +134,8 @@ void CGameMode::Draw(void)
 //=============================================================================
 void CGameMode::InitCreateAll(void)
 {
+	CMeatUI::Create();
+	CDaiyaUI::Create();
 	//もしライトのポインタがNULLの場合
 	if (m_pLight == NULL)
 	{

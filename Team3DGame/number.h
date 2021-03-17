@@ -45,7 +45,7 @@ public:
 	D3DXVECTOR3 GetSize(void) { return m_size; }
 
 private:
-	static LPDIRECT3DTEXTURE9	m_apTexture[NUMBER_TYPE];
+	static LPDIRECT3DTEXTURE9	m_apTexture[NUMBERTYPE_MAX];
 	LPDIRECT3DVERTEXBUFFER9		m_pVtxBuff;
 	NUMBERTYPE  m_type;
 	D3DXVECTOR3	m_pos;	//ƒ|ƒŠƒSƒ“‚ÌˆÊ’u

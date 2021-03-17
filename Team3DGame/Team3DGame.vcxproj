@@ -150,6 +150,7 @@
     <ClCompile Include="billboard.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="enemy.cpp" />
     <ClCompile Include="fade.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="joystick.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="billboard.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="enemy.h" />
     <ClInclude Include="fade.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="joystick.h" />
@@ -186,7 +188,6 @@
     <ClInclude Include="mode_game.h" />
     <ClInclude Include="mode_title.h" />
     <ClInclude Include="mode_tutorial.h" />
-    <ClInclude Include="motion.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="polygon3d.h" />
     <ClInclude Include="renderer.h" />

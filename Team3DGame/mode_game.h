@@ -24,6 +24,7 @@ class CCamera;
 class CPlayer;
 class CDragon;
 class CStage;
+class CEnemy;
 //*****************************************************************************
 // クラス定義
 //*****************************************************************************
@@ -39,6 +40,7 @@ public:
 	void Draw(void);
 	static CCamera * GetCamera(void) { return m_pCamera; }
 	static CPlayer * GetPlayer(void) { return m_pPlayer; }
+	static CEnemy * GetEnemy(void) { return m_pEnemy; }
 	static CDragon * GetDragon(void) { return m_pDragon; }
 	static CStage * GetStage(void) { return m_pStage; }
 private:
@@ -46,6 +48,7 @@ private:
 	void UpdateCreateAll(void);
 	static CCamera * m_pCamera;	//カメラのポインタ
 	static CPlayer * m_pPlayer;	//プレイヤーのポインタ
+	static CEnemy * m_pEnemy;	//エネミーのポインタ
 	static CDragon * m_pDragon;	//ドラゴンのポインタ
 	static CStage * m_pStage;	//ステージのポインタ
 	CLight * m_pLight;			//ライトのポインタ

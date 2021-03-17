@@ -37,21 +37,15 @@ public:
 	// モデルの各パーツ
 	typedef enum
 	{
-		PARTS_HIP = 0,
-		PARTS_BODY,
+		PARTS_BODY = 0,
 		PARTS_HEAD,
-		PARTS_RSHOULDER,
 		PARTS_RARM,
 		PARTS_RHAND,
-		PARTS_LSHOULDER,
 		PARTS_LARM,
 		PARTS_LHAND,
-		PARTS_RTHIGH,
 		PARTS_RLEG,
 		PARTS_RFOOT,
-		PARTS_LTHIGH,
 		PARTS_LLEG,
-		PARTS_LFOOT,
 		PARTS_LSHOE,
 		PARTS_MAX,
 	}PARTS;
@@ -75,10 +69,5 @@ private:
 	// メンバ変数
 	D3DXVECTOR3						m_move;				// ポリゴンの移動量
 
-	float							m_fGravDest;
-	bool							m_bJump;
-	bool							m_bShot;
-	bool							m_bHit;
-	bool							m_bDeath;
 };
 #endif

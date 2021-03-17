@@ -22,6 +22,7 @@
 #include "joystick.h"
 #include "fade.h"
 #include "player.h"
+#include "enemy.h"
 //*****************************************************************************
 // É}ÉNÉçíËã`
 //*****************************************************************************
@@ -218,6 +219,7 @@ void CManager::SetMode(MODE Mode)
 void CManager::LoadAll(void)
 {
 	CPlayer::Load();
+	CEnemy::Load();
 }
 
 //=============================================================================
@@ -226,6 +228,7 @@ void CManager::LoadAll(void)
 void CManager::UnloadAll(void)
 {
 	CPlayer::Unload();
+	CEnemy::Unload();
 }
 
 //=============================================================================

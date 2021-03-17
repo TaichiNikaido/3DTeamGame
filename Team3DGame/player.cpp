@@ -34,10 +34,6 @@ CPlayer::CPlayer()
 {
 	// メンバ変数
 	m_move = D3DXVECTOR3(0.0f, 0.0f, 0.0f);		// プレイヤーの移動量
-	m_fGravDest = PLAYER_GRAVITY;
-	m_bJump = false;
-	m_bShot = false;
-	m_bHit = false;
 }
 
 //=============================================================================
@@ -61,14 +57,9 @@ HRESULT CPlayer::Init(void)
 	}
 
 	// 座標・親子関係の読み込み
-	LoadModelData("./data/text/motion_LBX.txt");
+	LoadModelData("./data/text/motion.txt");
 
 	CCharacter::Init();
-
-	m_bJump = false;
-	m_bShot = false;
-	m_bHit = false;
-
 	SetPos(INITIAL_POSITION);
 
 
@@ -205,22 +196,16 @@ HRESULT CPlayer::Load(void)
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
 
 	// プレイヤー1
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/00_waist.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_HIP], NULL, &m_nNumMat[PARTS_HIP], &m_pMesh[PARTS_HIP]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/01_body.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_BODY], NULL, &m_nNumMat[PARTS_BODY], &m_pMesh[PARTS_BODY]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/02_head.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_HEAD], NULL, &m_nNumMat[PARTS_HEAD], &m_pMesh[PARTS_HEAD]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/03_rightshoulder.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RSHOULDER], NULL, &m_nNumMat[PARTS_RSHOULDER], &m_pMesh[PARTS_RSHOULDER]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/04_rightUpperArm.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RARM], NULL, &m_nNumMat[PARTS_RARM], &m_pMesh[PARTS_RARM]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/05_rightarm.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RHAND], NULL, &m_nNumMat[PARTS_RHAND], &m_pMesh[PARTS_RHAND]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/06_rightHand.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LSHOULDER], NULL, &m_nNumMat[PARTS_LSHOULDER], &m_pMesh[PARTS_LSHOULDER]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/07_leftshoulder.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LARM], NULL, &m_nNumMat[PARTS_LARM], &m_pMesh[PARTS_LARM]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/08_leftUpperArm.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LHAND], NULL, &m_nNumMat[PARTS_LHAND], &m_pMesh[PARTS_LHAND]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/09_leftarm.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RTHIGH], NULL, &m_nNumMat[PARTS_RTHIGH], &m_pMesh[PARTS_RTHIGH]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/10_rightThighs.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RLEG], NULL, &m_nNumMat[PARTS_RLEG], &m_pMesh[PARTS_RLEG]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/11_rightshin.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RFOOT], NULL, &m_nNumMat[PARTS_RFOOT], &m_pMesh[PARTS_RFOOT]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/12_rightshoe.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LTHIGH], NULL, &m_nNumMat[PARTS_LTHIGH], &m_pMesh[PARTS_LTHIGH]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/13_leftThighs.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LLEG], NULL, &m_nNumMat[PARTS_LLEG], &m_pMesh[PARTS_LLEG]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/14_leftshin.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LFOOT], NULL, &m_nNumMat[PARTS_LFOOT], &m_pMesh[PARTS_LFOOT]);
-	D3DXLoadMeshFromX(LPCSTR("./data/model/LBX/15_leftshoe.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LSHOE], NULL, &m_nNumMat[PARTS_LSHOE], &m_pMesh[PARTS_LSHOE]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/00_Body.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_BODY], NULL, &m_nNumMat[PARTS_BODY], &m_pMesh[PARTS_BODY]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/01_Head.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_HEAD], NULL, &m_nNumMat[PARTS_HEAD], &m_pMesh[PARTS_HEAD]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/02_RightArm.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RARM], NULL, &m_nNumMat[PARTS_RARM], &m_pMesh[PARTS_RARM]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/03_RightHand.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RHAND], NULL, &m_nNumMat[PARTS_RHAND], &m_pMesh[PARTS_RHAND]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/04_LeftArm.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LARM], NULL, &m_nNumMat[PARTS_LARM], &m_pMesh[PARTS_LARM]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/05_LeftHand.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LHAND], NULL, &m_nNumMat[PARTS_LHAND], &m_pMesh[PARTS_LHAND]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/06_RightLeg.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RLEG], NULL, &m_nNumMat[PARTS_RLEG], &m_pMesh[PARTS_RLEG]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/07_RightShoe.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_RFOOT], NULL, &m_nNumMat[PARTS_RFOOT], &m_pMesh[PARTS_RFOOT]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/08_LeftLeg.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LLEG], NULL, &m_nNumMat[PARTS_LLEG], &m_pMesh[PARTS_LLEG]);
+	D3DXLoadMeshFromX(LPCSTR("./data/player/09_LeftShoe.x"), D3DXMESH_SYSTEMMEM, pDevice, NULL, &m_pBuffMat[PARTS_LSHOE], NULL, &m_nNumMat[PARTS_LSHOE], &m_pMesh[PARTS_LSHOE]);
 
 	return S_OK;
 }

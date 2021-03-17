@@ -1,0 +1,51 @@
+//================================================
+//
+// 肉の所持数処理 [Meat.h]
+// Author : 佐藤颯紀
+//
+//================================================
+
+#ifndef _MEAT_H_
+#define _MEAT_H_
+
+//================================================
+//インクルードファイル
+//================================================
+#include "main.h"
+#include "scene.h"
+#include "number.h"
+
+//================================================
+//マクロ定義
+//================================================
+#define MEATE_MAX_DIGITS	(2)			// 肉の最大桁数
+#define MEAT_NUMBER_POS_X	(1790.0f)	// 肉の所持数のX座標
+#define MEAT_NUMBER_POS_Y	(400.0f)	// 肉の所持数のY座標
+#define MEAT_NUMBER_SIZE	(40.0f)		// 肉の所持数のサイズ
+#define MEAT_POSSESSION		(3)			// 肉の初期の数
+
+//================================================
+//クラス宣言
+//================================================
+class CMeat : public CScene
+{
+public:
+	CMeat(int nPriority = OBJTYPE_DEFAULT);
+	~CMeat();
+
+	static CMeat *Create();
+
+	HRESULT Init();
+	void Uninit(void);
+	void Update(void);
+	void Draw(void);
+
+	void AddMeat(int nValue);		// 肉の加算
+	static int GetMeat(void) { return m_nMeat; }	// 肉の取得
+
+private:
+	CNumber *m_apNumber[MEATE_MAX_DIGITS];	// 桁数
+	static int m_nMeat;						// 肉
+};
+
+#endif // ! _UI_NUMBER_H_

@@ -18,6 +18,7 @@
 #include "enemy.h"
 #include "meat.h"
 #include "daiya.h"
+#include "ui.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -29,6 +30,7 @@
 CCamera * CGameMode::m_pCamera = NULL;	//カメラのポインタ
 CPlayer * CGameMode::m_pPlayer = NULL;	//プレイヤーのポインタ
 CEnemy * CGameMode::m_pEnemy = NULL;	//敵のポインタ
+CUi * CGameMode::m_pUi = NULL;			//UIのポインタ
 
 //=============================================================================
 // コンストラクタ
@@ -142,6 +144,23 @@ void CGameMode::Draw(void)
 //=============================================================================
 void CGameMode::InitCreateAll(void)
 {
+	if (m_pUi == NULL)
+	{
+		// ダイヤUI
+		m_pUi = CUi::Create(D3DXVECTOR3(DAIYA_POS_X, DAIYA_POS_Y, 0.0f),
+			D3DXVECTOR3(DAIYA_SIZE, DAIYA_SIZE, 0.0f),
+			CUi::UITYPE_DAIYA);
+
+		// お肉UI
+		m_pUi = CUi::Create(D3DXVECTOR3(MEAT_POS_X, MEAT_POS_Y, 0.0f),
+			D3DXVECTOR3(MEAT_SIZE, MEAT_SIZE, 0.0f),
+			CUi::UITYPE_MEAT);
+
+		// WARNINGUI
+		m_pUi = CUi::Create(D3DXVECTOR3(WARNING_POS_X, WARNING_POS_Y, 0.0f),
+			D3DXVECTOR3(WARNING_SIZE, WARNING_SIZE, 0.0f),
+			CUi::UITYPE_WARNING);
+	}
 	CMeatUI::Create();
 	CDaiyaUI::Create();
 	//もしライトのポインタがNULLの場合

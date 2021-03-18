@@ -14,7 +14,8 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "mode_title.h"
-
+#include "bg_title.h"
+#include "title_logo.h"
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -22,6 +23,7 @@
 //*****************************************************************************
 // 静的メンバ変数の初期化
 //*****************************************************************************
+CTitlelogo *CTitleMode::m_pTitlelogo = NULL;
 
 //=============================================================================
 // コンストラクタ
@@ -90,6 +92,8 @@ void CTitleMode::Uninit(void)
 //=============================================================================
 void CTitleMode::Update(void)
 {
+	//入力処理関数呼び出し
+	Input();
 }
 
 //=============================================================================
@@ -100,8 +104,42 @@ void CTitleMode::Draw(void)
 }
 
 //=============================================================================
+// 入力処理関数
+//=============================================================================
+void CTitleMode::Input(void)
+{
+	//キーボードの取得
+	CKeyboard *pKeyboard = CManager::GetKeyboard();
+	//サウンドの取得
+	CSound * pSound = CManager::GetSound();
+	//ジョイスティックの取得
+	CJoystick * pJoystick = CManager::GetJoystick();
+	LPDIRECTINPUTDEVICE8 lpDIDevice = CJoystick::GetDevice();
+	DIJOYSTATE js;
+	//ジョイスティックの振動取得
+	LPDIRECTINPUTEFFECT pDIEffect = CJoystick::GetEffect();
+	if (lpDIDevice != NULL)
+	{
+		lpDIDevice->Poll();
+		lpDIDevice->GetDeviceState(sizeof(DIJOYSTATE), &js);
+	}
+	//もしENTERかAボタンを押したとき
+	if (pKeyboard->GetKeyboardTrigger(DIK_RETURN) || lpDIDevice != NULL &&pJoystick->GetJoystickTrigger(JS_A))
+	{
+		//ランキングに移動
+		CManager::StartFade(CManager::MODE_GAME);
+	}
+}
+
+//=============================================================================
 // 初期全生成処理関数
 //=============================================================================
 void CTitleMode::InitCreateAll(void)
 {
+	//タイトル背景の生成
+	CTitleBG::Create();
+	//タイトルロゴの生成
+	m_pTitlelogo = CTitlelogo::Create(D3DXVECTOR3(TITLE_PLESS_POS_X, TITLE_PLESS_POS_Y, 0.0f),
+		D3DXVECTOR3(TITLE_PLESS_SIZE_X, TITLE_PLESS_SIZE_Y, 0.0f),
+		CTitlelogo::LOGOTIPE_PRESS);
 }

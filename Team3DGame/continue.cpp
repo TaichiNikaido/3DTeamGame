@@ -16,6 +16,7 @@
 #include "continue.h"
 #include "continue_logo.h"
 #include "continue_button_manager.h"
+#include "bg_continue.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -84,29 +85,6 @@ void CContinue::Uninit(void)
 //=============================================================================
 void CContinue::Update(void)
 {
-	//キーボードの取得
-	CKeyboard *pKeyboard = CManager::GetKeyboard();
-	//サウンドの取得
-	CSound * pSound = CManager::GetSound();
-	//ジョイスティックの取得
-	CJoystick * pJoystick = CManager::GetJoystick();
-	LPDIRECTINPUTDEVICE8 lpDIDevice = CJoystick::GetDevice();
-	DIJOYSTATE js;
-	//ジョイスティックの振動取得
-	LPDIRECTINPUTEFFECT pDIEffect = CJoystick::GetEffect();
-	if (lpDIDevice != NULL)
-	{
-		lpDIDevice->Poll();
-		lpDIDevice->GetDeviceState(sizeof(DIJOYSTATE), &js);
-	}
-	//もしENTERかAボタンを押したとき
-	if (pKeyboard->GetKeyboardTrigger(DIK_RETURN) || lpDIDevice != NULL &&pJoystick->GetJoystickTrigger(JS_A))
-	{
-		//サウンドの停止
-		pSound->StopSound();
-		//ランキングに移動
-		CManager::StartFade(CManager::MODE_TITLE);
-	}
 }
 
 //=============================================================================
@@ -121,6 +99,7 @@ void CContinue::Draw(void)
 //=============================================================================
 void CContinue::CreateAll(void)
 {
+	CContinueBG::Create();
 	CContinueLogo::Create();
 	CContinueButtonManager::Create();
 }

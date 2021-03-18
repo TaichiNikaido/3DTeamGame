@@ -23,6 +23,7 @@ class CLight;
 class CCamera;
 class CPlayer;
 class CEnemy;
+class CUi;
 
 //*****************************************************************************
 // クラス定義
@@ -46,6 +47,7 @@ private:
 	static CCamera * m_pCamera;	//カメラのポインタ
 	static CPlayer * m_pPlayer;	//プレイヤーのポインタ
 	static CEnemy * m_pEnemy;	//敵のポインタ
+	static CUi * m_pUi;			//UIのポインタ
 	CLight * m_pLight;			//ライトのポインタ
 };
 #endif

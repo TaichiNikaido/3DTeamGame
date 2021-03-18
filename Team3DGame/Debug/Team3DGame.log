@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+﻿  player.cpp
+  コードを生成中...
+  スキップ中... (関連する変更は検出されませんでした)
+  continue.cpp
+  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.exe
+  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.pdb (Full PDB)
+=======
 ﻿  ui.cpp
   stan_effect.cpp
   sound.cpp
@@ -56,3 +64,4 @@ c:\users\gsp015\desktop\新しいフォルダー (4)\3dteamgame\team3dgame\conti
   LINK : 前回のインクリメンタル リンクで C:\Users\gsp015\Desktop\新しいフォルダー (4)\3DTeamGame\Debug\Team3DGame.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   Team3DGame.vcxproj -> C:\Users\gsp015\Desktop\新しいフォルダー (4)\3DTeamGame\Debug\Team3DGame.exe
   Team3DGame.vcxproj -> C:\Users\gsp015\Desktop\新しいフォルダー (4)\3DTeamGame\Debug\Team3DGame.pdb (Full PDB)
+>>>>>>> 0af80a1970da2f87b34e8e4fde399b5c35aeb2c6

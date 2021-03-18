@@ -34,7 +34,8 @@
 #include "bg_title.h"
 #include "bg_result.h"
 #include "title_logo.h"
-
+#include "particle.h"
+#include "bg_tutorial.h"
 //*****************************************************************************
 // É}ÉNÉçíËã`
 //*****************************************************************************
@@ -237,6 +238,7 @@ void CManager::LoadAll(void)
 	CPlayer::Load();
 	CEnemy::Load();
 	CEffect::Load();
+	CParticle::Load();
 	CUi::Load();
 	CNumber::Load();
 	CContinueButton::TextureLoad();
@@ -246,6 +248,7 @@ void CManager::LoadAll(void)
 	CTitleBG::TextureLoad();
 	CResultBG::TextureLoad();
 	CTitlelogo::Load();
+	CTutorialBG::TextureLoad();
 }
 
 //=============================================================================
@@ -256,6 +259,7 @@ void CManager::UnloadAll(void)
 	CPlayer::Unload();
 	CEnemy::Unload();
 	CEffect::Unload();
+	CParticle::Unload();
 	CUi::Unload();
 	CNumber::Unload();
 	CContinueButton::TextureUnload();
@@ -265,6 +269,7 @@ void CManager::UnloadAll(void)
 	CTitleBG::TextureUnload();
 	CResultBG::TextureUnload();
 	CTitlelogo::Unload();
+	CTutorialBG::TextureUnload();
 }
 
 //=============================================================================

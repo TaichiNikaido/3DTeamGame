@@ -15,7 +15,7 @@
 // マクロ定義
 //******************************************************************************
 #define TEX_STAR	("Data/Texture/Effect/star.png")		// テクスチャパス
-#define TEX_BYTE	("Data/Texture/Effect/fire002.png")		// テクスチャパス
+#define TEX_BYTE	("Data/Texture/Effect/byte0.png")		// テクスチャパス
 #define MIN_UV		(0.0f)									// UV最小値
 #define MAX_UV		(1.0f)									// UV最大値
 //******************************************************************************

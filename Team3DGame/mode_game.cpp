@@ -19,7 +19,9 @@
 #include "meat.h"
 #include "daiya.h"
 #include "ui.h"
-
+#include "byte_effect.h"
+#include "bg_tutorial.h"
+#include "dust_particle.h"
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -37,7 +39,8 @@ CUi * CGameMode::m_pUi = NULL;			//UIのポインタ
 //=============================================================================
 CGameMode::CGameMode()
 {
-	m_pLight = NULL;	//ライトのポインタ
+	m_pUi		= NULL;
+	m_pLight	= NULL;	//ライトのポインタ
 }
 
 //=============================================================================
@@ -189,6 +192,8 @@ void CGameMode::InitCreateAll(void)
 		//カメラの初期化処理関数呼び出し
 		m_pCamera->Init();
 	}
+	CDust_Particle::SandDust_Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	CByte_Effect::ByteEffect_Create(D3DXVECTOR3(0.0f,0.0f,0.0f),D3DXVECTOR3(300.0f,300.0f,0.0f));
 }
 
 //=============================================================================

@@ -23,6 +23,7 @@ CSound::PARAM CSound::m_aParam[SOUND_LABEL_MAX] =
 {
 	{ "Data/Music/BGM/TitleBGM.wav", -1 },
 	{ "Data/Music/BGM/GameBGM.wav", -1 },
+	{ "Data/Music/BGM/ResultBGM.wav", -1 },
 	{ "Data/Music/SE/Player/Jump.wav", 0 },
 	{ "Data/Music/SE/Enemy/EnemyWalk.wav", 0 },
 	{ "Data/Music/SE/System/Button_Select.wav", 0 },

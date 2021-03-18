@@ -195,6 +195,12 @@
     <ClCompile Include="bg_continue.cpp">
       <Filter>ソース ファイル\BG</Filter>
     </ClCompile>
+    <ClCompile Include="bg_title.cpp">
+      <Filter>ソース ファイル\BG</Filter>
+    </ClCompile>
+    <ClCompile Include="bg_result.cpp">
+      <Filter>ソース ファイル\BG</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="billboard.h">
@@ -318,6 +324,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="bg_continue.h">
+      <Filter>ヘッダー ファイル\BG</Filter>
+    </ClInclude>
+    <ClInclude Include="bg_title.h">
+      <Filter>ヘッダー ファイル\BG</Filter>
+    </ClInclude>
+    <ClInclude Include="bg_result.h">
       <Filter>ヘッダー ファイル\BG</Filter>
     </ClInclude>
   </ItemGroup>

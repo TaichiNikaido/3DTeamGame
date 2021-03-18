@@ -31,6 +31,8 @@
 #include "button_not_continue.h"
 #include "continue_logo.h"
 #include "bg_continue.h"
+#include "bg_title.h"
+#include "bg_result.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -109,7 +111,7 @@ HRESULT CManager::Init(HINSTANCE hInsitance, HWND hWnd, bool bWindow)
 	//全読み込み関数呼び出し
 	LoadAll();
 	//モードの設定
-	SetMode(MODE_GAME);
+	SetMode(MODE_RESULT);
 	return S_OK;
 }
 
@@ -240,6 +242,8 @@ void CManager::LoadAll(void)
 	CNotContinueButton::TextureLoad();
 	CContinueLogo::TextureLoad();
 	CContinueBG::TextureLoad();
+	CTitleBG::TextureLoad();
+	CResultBG::TextureLoad();
 }
 
 //=============================================================================
@@ -256,6 +260,8 @@ void CManager::UnloadAll(void)
 	CNotContinueButton::TextureUnload();
 	CContinueLogo::TextureUnload();
 	CContinueBG::TextureUnload();
+	CTitleBG::TextureUnload();
+	CResultBG::TextureUnload();
 }
 
 //=============================================================================

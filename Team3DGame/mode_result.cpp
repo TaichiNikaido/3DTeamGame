@@ -14,6 +14,7 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "mode_result.h"
+#include "bg_result.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -119,4 +120,6 @@ void CResultMode::Draw(void)
 //=============================================================================
 void CResultMode::CreateAll(void)
 {
+	//リザルト背景の生成
+	CResultBG::Create();
 }

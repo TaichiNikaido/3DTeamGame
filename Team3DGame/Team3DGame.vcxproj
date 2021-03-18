@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bg_continue.cpp" />
+    <ClCompile Include="bg_result.cpp" />
+    <ClCompile Include="bg_title.cpp" />
     <ClCompile Include="billboard.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="button_continue.cpp" />
@@ -191,6 +193,8 @@
   <ItemGroup>
     <ClInclude Include="animation.h" />
     <ClInclude Include="bg_continue.h" />
+    <ClInclude Include="bg_result.h" />
+    <ClInclude Include="bg_title.h" />
     <ClInclude Include="billboard.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="button_continue.h" />

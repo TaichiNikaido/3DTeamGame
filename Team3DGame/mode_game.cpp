@@ -73,6 +73,14 @@ CGameMode * CGameMode::Create()
 //=============================================================================
 HRESULT CGameMode::Init(void)
 {
+	//サウンドの取得
+	CSound * pSound = CManager::GetSound();
+	//もしサウンドのポインタがNULLじゃない場合
+	if (pSound != NULL)
+	{
+		//タイトルBGMの再生
+		pSound->PlaySoundA(CSound::SOUND_LABEL_BGM_GAME);
+	}
 	//全初期生成処理関数呼び出し
 	InitCreateAll();
 	return S_OK;

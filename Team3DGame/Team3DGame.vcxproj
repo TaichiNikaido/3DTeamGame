@@ -148,8 +148,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="billboard.cpp" />
+    <ClCompile Include="button.cpp" />
+    <ClCompile Include="button_continue.cpp" />
+    <ClCompile Include="button_not_continue.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="continue.cpp" />
+    <ClCompile Include="continue_button_manager.cpp" />
     <ClCompile Include="daiya.cpp" />
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="enemy.cpp" />
@@ -166,6 +171,7 @@
     <ClCompile Include="meat.cpp" />
     <ClCompile Include="model.cpp" />
     <ClCompile Include="mode_game.cpp" />
+    <ClCompile Include="mode_result.cpp" />
     <ClCompile Include="mode_title.cpp" />
     <ClCompile Include="mode_tutorial.cpp" />
     <ClCompile Include="ainimation.cpp" />
@@ -183,8 +189,13 @@
   <ItemGroup>
     <ClInclude Include="animation.h" />
     <ClInclude Include="billboard.h" />
+    <ClInclude Include="button.h" />
+    <ClInclude Include="button_continue.h" />
+    <ClInclude Include="button_not_continue.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="continue.h" />
+    <ClInclude Include="continue_button_manager.h" />
     <ClInclude Include="daiya.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="enemy.h" />
@@ -201,6 +212,7 @@
     <ClInclude Include="meat.h" />
     <ClInclude Include="model.h" />
     <ClInclude Include="mode_game.h" />
+    <ClInclude Include="mode_result.h" />
     <ClInclude Include="mode_title.h" />
     <ClInclude Include="mode_tutorial.h" />
     <ClInclude Include="motion.h" />

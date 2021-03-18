@@ -14,6 +14,7 @@
 #include "mode_title.h"
 #include "mode_tutorial.h"
 #include "mode_game.h"
+#include "mode_result.h"
 #include "scene.h"
 #include "scene2d.h"
 #include "sound.h"
@@ -40,7 +41,6 @@ CKeyboard * CManager::m_pKeyboard = NULL;		//キーボードへのポインタ
 CJoystick * CManager::m_pJoystick = NULL;		//マネージャーへのポインタ
 CGameMode * CManager::m_pGameMode = NULL;		//ゲームモードへのポインタ
 CResultMode * CManager::m_pResultMode = NULL;	//リザルトモードへのポインタ
-CRankingMode * CManager::m_pRankingMode = NULL;	//リザルトモードへのポインタ
 CFade * CManager::m_pFade = NULL;				//フェードへのポインタ
 CManager::MODE  CManager::m_Mode = MODE_NONE;	//モード
 bool CManager::m_bUseFade = false;				//フェードしてるか
@@ -213,6 +213,11 @@ void CManager::SetMode(MODE Mode)
 		//ゲームモードの生成処理関数呼び出し
 		m_pGameMode = CGameMode::Create();
 		break;
+	case MODE_RESULT:
+		//リザルトモードの生成処理関数呼び出し
+		m_pResultMode = CResultMode::Create();
+		break;
+	default:
 		break;
 	}
 }

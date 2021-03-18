@@ -19,9 +19,8 @@ class CSound;
 class CKeyboard;
 class CJoystick;
 class CTitleMode;
-class CResultMode;
-class CRankingMode;
 class CGameMode;
+class CResultMode;
 class CFade;
 
 //*****************************************************************************
@@ -38,11 +37,9 @@ public:
 	{
 		MODE_NONE = -1,
 		MODE_TITLE,
-		MODE_NAME,
 		MODE_TUTORIAL,
 		MODE_GAME,
 		MODE_RESULT,
-		MODE_RANKING,
 		MODE_MAX
 	}MODE;
 	CManager();
@@ -61,7 +58,6 @@ public:
 	static CJoystick * GetJoystick(void) { return m_pJoystick; }
 	static CGameMode * GetGameMode(void) { return m_pGameMode; }
 	static CResultMode * GetResultMode(void) { return m_pResultMode; }
-	static CRankingMode * GetRankingMode(void) { return m_pRankingMode; }
 	static CFade * GetFade(void) { return m_pFade; }
 private:
 	void LoadAll(void);
@@ -73,7 +69,6 @@ private:
 	static CJoystick * m_pJoystick;
 	static CGameMode * m_pGameMode;
 	static CResultMode * m_pResultMode;
-	static CRankingMode * m_pRankingMode;
 	static CFade * m_pFade;
 	static MODE m_Mode;
 	static bool m_bUseFade;

@@ -100,8 +100,6 @@ void CTutorialMode::Update(void)
 	//もしENTERかAボタンを押したとき
 	if (pKeyboard->GetKeyboardTrigger(DIK_RETURN) || lpDIDevice != NULL &&pJoystick->GetJoystickTrigger(JS_A))
 	{
-		//サウンドの停止
-		pSound->StopSound();
 		//ランキングに移動
 		CManager::StartFade(CManager::MODE_GAME);
 	}

@@ -61,6 +61,18 @@
     <Filter Include="ヘッダー ファイル\UI">
       <UniqueIdentifier>{e4251c69-087a-401d-9d54-83c525bdbc86}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\BG">
+      <UniqueIdentifier>{834f8729-d4e4-4999-a318-93746cc10d37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\BG">
+      <UniqueIdentifier>{4fd5f148-8983-499e-a639-12fb0bfb2968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Button">
+      <UniqueIdentifier>{ad5fc506-e8b4-4ec7-9a34-e357b2eda635}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Button">
+      <UniqueIdentifier>{edee9861-2cda-499f-9dc1-d5844533e99b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="billboard.cpp">
@@ -158,6 +170,24 @@
     </ClCompile>
     <ClCompile Include="ui.cpp">
       <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="mode_result.cpp">
+      <Filter>ソース ファイル\Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="continue.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="button_continue.cpp">
+      <Filter>ソース ファイル\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>ソース ファイル\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="button_not_continue.cpp">
+      <Filter>ソース ファイル\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="continue_button_manager.cpp">
+      <Filter>ソース ファイル\Button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +289,24 @@
     </ClInclude>
     <ClInclude Include="daiya.h">
       <Filter>ヘッダー ファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="mode_result.h">
+      <Filter>ヘッダー ファイル\Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="continue.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>ヘッダー ファイル\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="button_continue.h">
+      <Filter>ヘッダー ファイル\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="button_not_continue.h">
+      <Filter>ヘッダー ファイル\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="continue_button_manager.h">
+      <Filter>ヘッダー ファイル\Button</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

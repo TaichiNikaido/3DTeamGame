@@ -26,6 +26,7 @@
 #include "camera.h"
 #include "item_meat.h"
 #include "stan_effect.h"
+#include "continue_button_manager.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -73,6 +74,7 @@ CPlayer::CPlayer()
 	m_fGravity = INITIAL_GRAVITY;									//重力
 	m_bHit = false;													//ヒットしたか
 	m_bJump = false;												//ジャンプしたかどうか
+	m_bContinue = false;											//コンティニューするかどうか
 	m_State = STATE_NONE;											//状態
 	m_Input = INPUT_NONE;											//入力情報
 }
@@ -203,6 +205,12 @@ void CPlayer::Update()
 	}
 	//重力処理関数呼び出し
 	Gravity();
+	//もしコンティニューしたら
+	if (m_bContinue == true)
+	{
+		//コンティニュー処理関数呼び出し
+		Continue();
+	}
 	//もし肉の所持数が0以下になったら
 	if (m_nMeat <= MINIMUM_MEAT)
 	{
@@ -270,6 +278,10 @@ void CPlayer::Input(void)
 	if (pKeyboard->GetKeyboardTrigger(DIK_X))
 	{
 		Hit();
+	}
+	if (pKeyboard->GetKeyboardTrigger(DIK_Z))
+	{
+		Death();
 	}
 }
 
@@ -370,6 +382,11 @@ void CPlayer::Hit(void)
 	m_bHit = true;
 	//スタンエフェクトの生成
 	CStan_Effect::StanEffect_Create(Position, STANEFFECT_SIZE, STANEFFECT_ROT, STANEFFECT_COL, STANEFFECT_LENGTH);
+	//もし肉の数が0になったら
+	if (m_nMeat == MINIMUM_MEAT)
+	{
+		//コンティニュー画面表示
+	}
 }
 
 //=============================================================================
@@ -379,8 +396,14 @@ void CPlayer::Death(void)
 {
 	//ダイアモンドの所持数を0にする
 	m_nDiamond = MINIMUM_DIAMOND;
-	//肉の所持数をマックスにする
-	m_nMeat = m_nMaxMeat;
+	CContinueButtonManager::Create();
+}
+
+//=============================================================================
+// コンティニュー関数
+//=============================================================================
+void CPlayer::Continue(void)
+{
 }
 
 //=============================================================================

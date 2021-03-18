@@ -79,6 +79,7 @@ private:
 	void AutoRun(void);
 	void Gravity(void);
 	void Death(void);
+	void Continue(void);
 	void DataLoad(void);
 	static LPDIRECT3DTEXTURE9 m_pTexture;
 	static LPD3DXMESH m_pMesh[PARTS_MAX];
@@ -97,6 +98,7 @@ private:
 	float m_fGravity;										//重力
 	bool m_bHit;											//ヒットしたか
 	bool m_bJump;											//ジャンプしたかどうが
+	bool m_bContinue;										//コンティニューするか
 	STATE m_State;											//状態
 	INPUT m_Input;											//入力
 };

@@ -1,39 +1,29 @@
 //******************************************************************************
-// エフェクト [ effect.h]
-// Author : 管原 司
+// ダイヤのパーティクル [dust_particle.h]
+// Author : 管原　司
 //******************************************************************************
-#ifndef _EFFECT_H_
-#define _EFFECT_H_
+#ifndef _DIA_PARTICLE_H_
+#define _DIA_PARTICLE_H_
 //******************************************************************************
 // インクルードファイル
 //******************************************************************************
-#include "billboard.h"
+#include "particle.h"
 //******************************************************************************
 // クラス
 //******************************************************************************
-class CEffect : public CBillboard
+class CDia_Particle : public CParticle
 {
 public:
-	// テクスチャタイプ
-	typedef enum
-	{
-		TEX_TYPE_NONE = -1,
-		TEX_TYPE_STAR,
-		TEX_TYPE_BYTE,
-		TEX_TYPE_MAX,
-	}TEX_TYPE;
-
-	CEffect(int mPriority = 0);
-	~CEffect();
-	static HRESULT Load(void);
-	static void Unload(void);
+	CDia_Particle(int nPrirority = 0);
+	~CDia_Particle();
+	static CDia_Particle *Create(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR col, D3DXVECTOR3 move);
 	HRESULT Init(void);
 	void Uninit(void);
 	void Update(void);
 	void Draw(void);
-	void SetEffect(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXVECTOR3 rot,  D3DXCOLOR col, TEX_TYPE TexType);
+	static void DiaEffect_Create(D3DXVECTOR3 pos);
 private:
-	static LPDIRECT3DTEXTURE9 m_pTexture[TEX_TYPE_MAX];	// texture
-	TEX_TYPE m_TexType;									// テクスチャタイプ
+	D3DXVECTOR3 m_move;		// 移動
+	int m_nLife;			// ライフ
 };
 #endif

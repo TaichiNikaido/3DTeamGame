@@ -1,4 +1,19 @@
-﻿  manager.cpp
-cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
-  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.exe
-  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.pdb (Full PDB)
+﻿  player.cpp
+  mode_game.cpp
+  meat.cpp
+c:\users\pcyou\desktop\3dteamgame\team3dgame\meat.cpp(108): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\pcyou\desktop\3dteamgame\team3dgame\meat.cpp(108): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  manager.cpp
+  item_meat.cpp
+  item_diamond.cpp
+  daiya.cpp
+c:\users\pcyou\desktop\3dteamgame\team3dgame\daiya.cpp(111): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\pcyou\desktop\3dteamgame\team3dgame\daiya.cpp(111): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  camera.cpp
+  button_continue.cpp
+  コードを生成中...
+  コンパイル中...
+  enemy.cpp
+  コードを生成中...
+  Team3DGame.vcxproj -> C:\Users\pcyou\Desktop\3DTeamGame\Debug\Team3DGame.exe
+  Team3DGame.vcxproj -> C:\Users\pcyou\Desktop\3DTeamGame\Debug\Team3DGame.pdb (Full PDB)

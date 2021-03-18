@@ -27,7 +27,7 @@
 #include "item_meat.h"
 #include "stan_effect.h"
 #include "continue.h"
-
+#include "animation.h"
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -182,6 +182,7 @@ void CPlayer::Update()
 {
 	//キャラクターの更新処理関数呼び出し
 	CCharacter::Update();
+
 	//もし生きていたら
 	if (m_State == STATE_LIVE)
 	{
@@ -243,6 +244,9 @@ void CPlayer::Input(void)
 	CJoystick * pJoystick = CManager::GetJoystick();
 	LPDIRECTINPUTDEVICE8 lpDIDevice = CJoystick::GetDevice();
 	DIJOYSTATE js;
+	//アニメーションの取得
+	CAnimation * pAnimation = GetAnimation();
+
 	//ジョイスティックの振動取得
 	LPDIRECTINPUTEFFECT pDIEffect = CJoystick::GetEffect();
 	if (lpDIDevice != NULL)
@@ -259,6 +263,7 @@ void CPlayer::Input(void)
 	{
 		//入力キー情報を左にする
 		m_Input = INPUT_LEFT;
+
 		//移動処理関数呼び出し
 		Move();
 	}

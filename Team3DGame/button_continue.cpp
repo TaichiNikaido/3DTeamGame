@@ -12,9 +12,11 @@
 #include <stdlib.h>
 #include "main.h"
 #include "manager.h"
+#include "mode_game.h"
 #include "renderer.h"
 #include "sound.h"
 #include "button_continue.h"
+#include "player.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -105,6 +107,8 @@ void CContinueButton::Draw(void)
 //=============================================================================
 void CContinueButton::Press(void)
 {
+	//プレイヤーの取得
+	CPlayer * pPlayer = CGameMode::GetPlayer();
 	//サウンドの取得
 	CSound * pSound = CManager::GetSound();
 	//もしサウンドのポインタがNULLじゃない場合
@@ -112,5 +116,11 @@ void CContinueButton::Press(void)
 	{
 		//決定音の再生
 		pSound->PlaySoundA(CSound::SOUND_LABEL_SE_BUTTON_PUSH);
+	}
+	//もしプレイヤーのポインタがNULLじゃない場合
+	if (pPlayer != NULL)
+	{
+		//プレイヤーのコンティニューをtrueにする
+		pPlayer->SetContinue(true);
 	}
 }

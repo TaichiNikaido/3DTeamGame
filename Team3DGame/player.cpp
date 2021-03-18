@@ -161,6 +161,8 @@ HRESULT CPlayer::Init(void)
 	DataLoad();
 	//キャラクターの初期化処理関数呼び出し
 	CCharacter::Init();
+	//プレイヤーの状態を生存状態にする
+	m_State = STATE_LIVE;
 	return S_OK;
 }
 
@@ -169,6 +171,7 @@ HRESULT CPlayer::Init(void)
 //=============================================================================
 void CPlayer::Uninit()
 {
+	//キャラクターの終了処理関数呼び出し
 	CCharacter::Uninit();
 }
 
@@ -177,31 +180,37 @@ void CPlayer::Uninit()
 //=============================================================================
 void CPlayer::Update()
 {
+	//キャラクターの更新処理関数呼び出し
 	CCharacter::Update();
-	//もしヒットしたら
-	if (m_bHit == true)
+	//もし生きていたら
+	if (m_State == STATE_LIVE)
 	{
-		//スタン時間を加算する
-		m_nStunTimeCount++;
-		//もしスタン時間内だった場合
-		if (m_nStunTimeCount <= m_nStunTime)
+		//もしヒットしたら
+		if (m_bHit == true)
 		{
-			//移動量を0にする
-			m_Move = INITIAL_MOVE;
+			//スタン時間を加算する
+			m_nStunTimeCount++;
+			//もしスタン時間内だった場合
+			if (m_nStunTimeCount <= m_nStunTime)
+			{
+				//移動量を0にする
+				m_Move = INITIAL_MOVE;
+			}
+			else
+			{
+				//ヒット状態をやめる
+				m_bHit = false;
+				//スタン時間を0にする
+				m_nStunTimeCount = MINIMUM_STAN_TIME;
+			}
 		}
 		else
 		{
-			//ヒット状態をやめる
-			m_bHit = false;
-			m_nStunTimeCount = MINIMUM_STAN_TIME;
+			//入力処理関数呼び出し
+			Input();
+			//オートラン処理関数呼び出し
+			AutoRun();
 		}
-	}
-	else
-	{
-		//入力処理関数呼び出し
-		Input();
-		//オートラン処理関数呼び出し
-		AutoRun();
 	}
 	//重力処理関数呼び出し
 	Gravity();
@@ -211,12 +220,6 @@ void CPlayer::Update()
 		//コンティニュー処理関数呼び出し
 		Continue();
 	}
-	//もし肉の所持数が0以下になったら
-	if (m_nMeat <= MINIMUM_MEAT)
-	{
-		//死亡処理関数呼び出し
-		Death();
-	}
 }
 
 //=============================================================================
@@ -225,7 +228,7 @@ void CPlayer::Update()
 void CPlayer::Draw()
 {
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-
+	//キャラクターの描画処理関数呼び出し
 	CCharacter::Draw();
 }
 
@@ -382,10 +385,11 @@ void CPlayer::Hit(void)
 	m_bHit = true;
 	//スタンエフェクトの生成
 	CStan_Effect::StanEffect_Create(Position, STANEFFECT_SIZE, STANEFFECT_ROT, STANEFFECT_COL, STANEFFECT_LENGTH);
-	//もし肉の数が0になったら
-	if (m_nMeat == MINIMUM_MEAT)
+	//もし肉の所持数が0以下になったら
+	if (m_nMeat <= MINIMUM_MEAT)
 	{
-		//コンティニュー画面表示
+		//死亡処理関数呼び出し
+		Death();
 	}
 }
 
@@ -394,8 +398,11 @@ void CPlayer::Hit(void)
 //=============================================================================
 void CPlayer::Death(void)
 {
+	//死亡状態にする
+	m_State = STATE_DEATH;
 	//ダイアモンドの所持数を0にする
 	m_nDiamond = MINIMUM_DIAMOND;
+	//コンティニュー画面の生成
 	CContinueButtonManager::Create();
 }
 
@@ -404,6 +411,11 @@ void CPlayer::Death(void)
 //=============================================================================
 void CPlayer::Continue(void)
 {
+	//コンティニューをやめる
+	m_bContinue = false;
+	//肉の所持数を回復させる
+	m_nMeat = m_nMaxMeat;
+	//チェックポイントに戻す
 }
 
 //=============================================================================

@@ -69,6 +69,7 @@ public:
 	void Draw(void);
 	void Hit(void);
 	void AddDiamond(int nValue) { m_nDiamond += nValue; }
+	void SetContinue(bool bContinue) { m_bContinue = bContinue; }
 	int GetMeat(void) { return m_nMeat; }
 	int GetDiamond(void) { return m_nDiamond; }
 	bool GetbHit(void) { return m_bHit; }

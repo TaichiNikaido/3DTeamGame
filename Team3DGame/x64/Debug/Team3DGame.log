@@ -1,0 +1,5 @@
+﻿  field.cpp
+c:\users\gsp029\desktop\himiya\3dteamgame\team3dgame\dia.h(20): warning C4005: 'COLLISION_SIZE': マクロが再定義されました。
+  c:\users\gsp029\desktop\himiya\3dteamgame\team3dgame\tree.h(20): note: 'COLLISION_SIZE' の以前の定義を確認してください
+  Team3DGame.vcxproj -> C:\Users\gsp029\Desktop\himiya\3DTeamGame\x64\Debug\Team3DGame.exe
+  Team3DGame.vcxproj -> C:\Users\gsp029\Desktop\himiya\3DTeamGame\x64\Debug\Team3DGame.pdb (Full PDB)

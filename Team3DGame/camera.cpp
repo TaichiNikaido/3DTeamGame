@@ -55,7 +55,7 @@ CCamera::~CCamera()
 //=============================================================================
 HRESULT CCamera::Init(void)
 {
-	m_PositionV = D3DXVECTOR3(TILE_SIZE * 5.0f, 800.0f, 0.0f);
+	m_PositionV = D3DXVECTOR3(TILE_SIZE * 5.0f, 500.0f, 0.0f);
 	m_PositionR = D3DXVECTOR3(TILE_SIZE * 5.0f, 0.0f, TILE_SIZE * 2.0f);
 	m_VectorU = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
 	return S_OK;
@@ -73,6 +73,14 @@ void CCamera::Uninit(void)
 //=============================================================================
 void CCamera::Update(void)
 {
+	CKeyboard *pInput = CManager::GetKeyboard();
+
+	// ‘O‚ÖˆÚ“®
+	if (pInput->GetKeyboardPress(DIK_UP))
+	{
+		m_PositionR.z += 10.0f;
+		m_PositionV.z += 10.0f;
+	}
 }
 
 //=============================================================================

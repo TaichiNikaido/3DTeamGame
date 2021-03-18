@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="billboard.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="dia.cpp" />
     <ClCompile Include="fade.cpp" />
     <ClCompile Include="field.cpp" />
     <ClCompile Include="input.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="manager.cpp" />
     <ClCompile Include="model.cpp" />
+    <ClCompile Include="model_himiya.cpp" />
     <ClCompile Include="mode_game.cpp" />
     <ClCompile Include="mode_title.cpp" />
     <ClCompile Include="mode_tutorial.cpp" />
@@ -172,10 +174,13 @@
     <ClCompile Include="scene3d.cpp" />
     <ClCompile Include="sound.cpp" />
     <ClCompile Include="tile.cpp" />
+    <ClCompile Include="Tree.cpp" />
+    <ClCompile Include="wood.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="billboard.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="dia.h" />
     <ClInclude Include="fade.h" />
     <ClInclude Include="field.h" />
     <ClInclude Include="input.h" />
@@ -185,6 +190,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="manager.h" />
     <ClInclude Include="model.h" />
+    <ClInclude Include="model_himiya.h" />
     <ClInclude Include="mode_game.h" />
     <ClInclude Include="mode_title.h" />
     <ClInclude Include="mode_tutorial.h" />
@@ -196,6 +202,8 @@
     <ClInclude Include="scene3d.h" />
     <ClInclude Include="sound.h" />
     <ClInclude Include="tile.h" />
+    <ClInclude Include="tree.h" />
+    <ClInclude Include="wood.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

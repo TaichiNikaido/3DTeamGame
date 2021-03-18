@@ -21,6 +21,10 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "fade.h"
+#include "wood.h"
+#include "tree.h"
+#include "tile.h"
+#include "dia.h"
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
@@ -217,6 +221,10 @@ void CManager::SetMode(MODE Mode)
 //=============================================================================
 void CManager::LoadAll(void)
 {
+	CTree::Load();
+	CWood::Load();
+	CTile::Load();
+	CDia::Load();
 }
 
 //=============================================================================
@@ -224,6 +232,10 @@ void CManager::LoadAll(void)
 //=============================================================================
 void CManager::UnloadAll(void)
 {
+	CWood::Unload();
+	CTree::Unload();
+	CTile::Unload();
+	CDia::Unload();
 }
 
 //=============================================================================

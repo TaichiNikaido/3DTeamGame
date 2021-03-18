@@ -19,10 +19,9 @@
 // マクロ定義
 //*****************************************************************************
 #define FIELD_SIZE 2000
-#define FIELD_WIDTH  10
-#define FIELD_HEIGHT 10
+#define FIELD_WIDTH  7
+#define FIELD_HEIGHT 80
 #define FIELD_NUM 2
-#define MAX_TILE_LINE 80   // 一列のタイルの最大数
 
 //*****************************************************************************
 // プレイヤークラス定義
@@ -48,7 +47,7 @@ public:
 	void SetField(int nWidth, int nDepth);
 private:
 	// メンバ変数
-	CTile						*m_apTile[MAX_TILE_LINE][MAX_TILE_LINE];			// 3Dポリゴンへのポインタ
-	int							m_aGround[MAX_TILE_LINE][MAX_TILE_LINE];
+	CTile						*m_apTile[FIELD_HEIGHT][FIELD_WIDTH];			// 3Dポリゴンへのポインタ
+	int							m_aGround[FIELD_HEIGHT][FIELD_WIDTH];
 };
 #endif

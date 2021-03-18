@@ -35,11 +35,14 @@ public:
         TILE_GRASS,
 		TILE_TREE_DIRT,
 		TILE_TREE_GRASS,
-		TILE_WODD_DIRT,
+		TILE_WOOD_DIRT,
 		TILE_WOOD_GRASS,
 		TILE_MUD,
 		TILE_DIA_DIRT,
 		TILE_HOLE,
+		TILE_DIA_MUD,
+		TILE_CHECK_POINT,
+		TILE_GOAL,
         TILE_MAX
     }TYPE;
 
@@ -53,7 +56,7 @@ public:
     void SetScale(const D3DXVECTOR3 scale) { m_scale = scale; }
 
     void SetTexUV(const float leftX, const float rightX, const float topY, const float bottomY);
-    D3DXVECTOR3 GetPosition(void) const { return m_pos; }
+    D3DXVECTOR3 GetPos(void) const { return m_pos; }
     void GetTexUV(float* leftX, float* rightX, float* topY, float* bottomY);
 
     static HRESULT Load(void);

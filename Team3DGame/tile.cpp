@@ -190,8 +190,18 @@ HRESULT CTile::Load(void)
     LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
 
     // テクスチャ
-    D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/floor.jpg", &m_apTexture[TILE_DIRT]);
-    D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/ceiling.jpg", &m_apTexture[TILE_GRASS]);
+    D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/dirt.png", &m_apTexture[TILE_DIRT]);
+    D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/grass.png", &m_apTexture[TILE_GRASS]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/dirt.png", &m_apTexture[TILE_TREE_DIRT]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/grass.png", &m_apTexture[TILE_TREE_GRASS]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/dirt.png", &m_apTexture[TILE_WOOD_DIRT]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/grass.png", &m_apTexture[TILE_WOOD_GRASS]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/mud.png", &m_apTexture[TILE_MUD]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/dirt.png", &m_apTexture[TILE_DIA_DIRT]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/dirt.png", &m_apTexture[TILE_HOLE]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/mud.png", &m_apTexture[TILE_DIA_MUD]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/dirt.png", &m_apTexture[TILE_CHECK_POINT]);
+	D3DXCreateTextureFromFile(pDevice, "./data/TEXTURE/dirt.png", &m_apTexture[TILE_GOAL]);
 
     return S_OK;
 }

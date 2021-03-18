@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
+<<<<<<< HEAD
 Debug|Win32|C:\Users\pcyou\Desktop\3DTeamGame\|
+=======
+Debug|Win32|C:\Users\gsp015\Desktop\新しいフォルダー (4)\3DTeamGame\|
+>>>>>>> b4d9ac531e8c0a907d4d6605b264682fa43a0f3a

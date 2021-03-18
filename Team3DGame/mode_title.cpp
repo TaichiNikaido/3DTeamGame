@@ -14,6 +14,7 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "mode_title.h"
+#include "bg_title.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -90,6 +91,8 @@ void CTitleMode::Uninit(void)
 //=============================================================================
 void CTitleMode::Update(void)
 {
+	//入力処理関数呼び出し
+	Input();
 }
 
 //=============================================================================
@@ -100,10 +103,39 @@ void CTitleMode::Draw(void)
 }
 
 //=============================================================================
+// 入力処理関数
+//=============================================================================
+void CTitleMode::Input(void)
+{
+	//キーボードの取得
+	CKeyboard *pKeyboard = CManager::GetKeyboard();
+	//サウンドの取得
+	CSound * pSound = CManager::GetSound();
+	//ジョイスティックの取得
+	CJoystick * pJoystick = CManager::GetJoystick();
+	LPDIRECTINPUTDEVICE8 lpDIDevice = CJoystick::GetDevice();
+	DIJOYSTATE js;
+	//ジョイスティックの振動取得
+	LPDIRECTINPUTEFFECT pDIEffect = CJoystick::GetEffect();
+	if (lpDIDevice != NULL)
+	{
+		lpDIDevice->Poll();
+		lpDIDevice->GetDeviceState(sizeof(DIJOYSTATE), &js);
+	}
+	//もしENTERかAボタンを押したとき
+	if (pKeyboard->GetKeyboardTrigger(DIK_RETURN) || lpDIDevice != NULL &&pJoystick->GetJoystickTrigger(JS_A))
+	{
+		//ランキングに移動
+		CManager::StartFade(CManager::MODE_GAME);
+	}
+}
+
+//=============================================================================
 // 初期全生成処理関数
 //=============================================================================
 void CTitleMode::InitCreateAll(void)
 {
+	//タイトル背景の生成
+	CTitleBG::Create();
 	//タイトルロゴの生成
-
 }

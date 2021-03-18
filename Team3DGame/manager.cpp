@@ -111,7 +111,7 @@ HRESULT CManager::Init(HINSTANCE hInsitance, HWND hWnd, bool bWindow)
 	//全読み込み関数呼び出し
 	LoadAll();
 	//モードの設定
-	SetMode(MODE_RESULT);
+	SetMode(MODE_TITLE);
 	return S_OK;
 }
 

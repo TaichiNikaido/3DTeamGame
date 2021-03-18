@@ -19,6 +19,7 @@
 //*****************************************************************************
 // 前方宣言
 //*****************************************************************************
+class CTitlelogo;
 
 //*****************************************************************************
 // クラス定義
@@ -33,8 +34,10 @@ public:
 	void Uninit(void);
 	void Update(void);
 	void Draw(void);
+	static CTitlelogo *GetLogo(void) { return m_pTitlelogo; }
 private:
 	void Input(void);
 	void InitCreateAll(void);
+	static CTitlelogo *m_pTitlelogo;			//タイトルロゴのポインタ
 };
 #endif

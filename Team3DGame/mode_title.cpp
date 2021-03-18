@@ -15,7 +15,7 @@
 #include "joystick.h"
 #include "mode_title.h"
 #include "bg_title.h"
-
+#include "title_logo.h"
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -23,6 +23,7 @@
 //*****************************************************************************
 // 静的メンバ変数の初期化
 //*****************************************************************************
+CTitlelogo *CTitleMode::m_pTitlelogo = NULL;
 
 //=============================================================================
 // コンストラクタ
@@ -138,4 +139,7 @@ void CTitleMode::InitCreateAll(void)
 	//タイトル背景の生成
 	CTitleBG::Create();
 	//タイトルロゴの生成
+	m_pTitlelogo = CTitlelogo::Create(D3DXVECTOR3(TITLE_PLESS_POS_X, TITLE_PLESS_POS_Y, 0.0f),
+		D3DXVECTOR3(TITLE_PLESS_SIZE_X, TITLE_PLESS_SIZE_Y, 0.0f),
+		CTitlelogo::LOGOTIPE_PRESS);
 }

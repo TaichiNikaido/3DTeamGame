@@ -201,6 +201,12 @@
     <ClCompile Include="bg_result.cpp">
       <Filter>ソース ファイル\BG</Filter>
     </ClCompile>
+    <ClCompile Include="title_logo.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="score.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="billboard.h">
@@ -331,6 +337,12 @@
     </ClInclude>
     <ClInclude Include="bg_result.h">
       <Filter>ヘッダー ファイル\BG</Filter>
+    </ClInclude>
+    <ClInclude Include="title_logo.h">
+      <Filter>ヘッダー ファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="score.h">
+      <Filter>ヘッダー ファイル\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

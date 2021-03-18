@@ -44,6 +44,11 @@ HRESULT CNumber::Load(void)
 		"Data/Texture/num.png", //ファイルの読み込み
 		&m_apTexture[NUMBERTYPE_MEAT]);
 
+	//テクスチャの読み込み
+	D3DXCreateTextureFromFile(pDevice,
+		"Data/Texture/num.png", //ファイルの読み込み
+		&m_apTexture[NUMBERTYPE_SCORE]);
+
 	return S_OK;
 }
 

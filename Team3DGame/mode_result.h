@@ -19,6 +19,7 @@
 //*****************************************************************************
 // 前方宣言
 //*****************************************************************************
+class CScore;
 
 //*****************************************************************************
 // クラス定義
@@ -33,7 +34,9 @@ public:
 	void Uninit(void);
 	void Update(void);
 	void Draw(void);
+	static CScore *GetScore(void) { return m_pScore; }
 private:
 	void CreateAll(void);
+	static CScore *m_pScore;					// スコアのポインタ
 };
 #endif

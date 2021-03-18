@@ -30,6 +30,7 @@
 #include "button_continue.h"
 #include "button_not_continue.h"
 #include "continue_logo.h"
+#include "bg_continue.h"
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
@@ -238,6 +239,7 @@ void CManager::LoadAll(void)
 	CContinueButton::TextureLoad();
 	CNotContinueButton::TextureLoad();
 	CContinueLogo::TextureLoad();
+	CContinueBG::TextureLoad();
 }
 
 //=============================================================================
@@ -253,6 +255,7 @@ void CManager::UnloadAll(void)
 	CContinueButton::TextureUnload();
 	CNotContinueButton::TextureUnload();
 	CContinueLogo::TextureUnload();
+	CContinueBG::TextureUnload();
 }
 
 //=============================================================================

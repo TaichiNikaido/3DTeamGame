@@ -104,4 +104,6 @@ void CTitleMode::Draw(void)
 //=============================================================================
 void CTitleMode::InitCreateAll(void)
 {
+	//ƒ^ƒCƒgƒ‹ƒƒS‚Ì¶¬
+
 }

@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bg_continue.cpp" />
     <ClCompile Include="billboard.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="button_continue.cpp" />
@@ -189,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animation.h" />
+    <ClInclude Include="bg_continue.h" />
     <ClInclude Include="billboard.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="button_continue.h" />

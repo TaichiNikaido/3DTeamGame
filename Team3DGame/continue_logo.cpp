@@ -21,8 +21,8 @@
 // マクロ定義
 //*****************************************************************************
 #define TEXTURE ("Data/Texture/CONTINUE.png")										//テクスチャ
-#define SIZE (D3DXVECTOR3(700.0f,300.0f,0.0f))										//サイズ
-#define POSITION (D3DXVECTOR3(SCREEN_WIDTH / 2,SCREEN_HEIGHT - SIZE.y * 2.5,0.0f))	//位置
+#define SIZE (D3DXVECTOR3(700.0f,250.0f,0.0f))										//サイズ
+#define POSITION (D3DXVECTOR3(SCREEN_WIDTH / 2,SCREEN_HEIGHT - SIZE.y * 3.0,0.0f))	//位置
 #define FLAME (0)																	//フレーム
 
 //*****************************************************************************

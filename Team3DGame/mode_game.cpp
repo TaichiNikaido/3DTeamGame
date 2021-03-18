@@ -14,6 +14,7 @@
 #include "mode_game.h"
 #include "camera.h"
 #include "light.h"
+<<<<<<< HEAD
 #include "player.h"
 #include "enemy.h"
 #include "meat.h"
@@ -22,6 +23,10 @@
 #include "byte_effect.h"
 #include "bg_tutorial.h"
 #include "dust_particle.h"
+=======
+#include "field.h"
+
+>>>>>>> remotes/origin/Himiya
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -192,8 +197,13 @@ void CGameMode::InitCreateAll(void)
 		//カメラの初期化処理関数呼び出し
 		m_pCamera->Init();
 	}
+<<<<<<< HEAD
 	CDust_Particle::SandDust_Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	CByte_Effect::ByteEffect_Create(D3DXVECTOR3(0.0f,0.0f,0.0f),D3DXVECTOR3(300.0f,300.0f,0.0f));
+=======
+
+	CField::Create();
+>>>>>>> remotes/origin/Himiya
 }
 
 //=============================================================================

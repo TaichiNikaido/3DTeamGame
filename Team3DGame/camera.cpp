@@ -15,7 +15,11 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "camera.h"
+<<<<<<< HEAD
 #include "player.h"
+=======
+#include "field.h"
+>>>>>>> remotes/origin/Himiya
 
 //*****************************************************************************
 // マクロ定義
@@ -57,6 +61,7 @@ CCamera::~CCamera()
 //=============================================================================
 HRESULT CCamera::Init(void)
 {
+<<<<<<< HEAD
 	//プレイヤーの取得
 	CPlayer * pPlayer = CGameMode::GetPlayer();
 	//もしプレイヤーがNULLじゃない場合
@@ -71,6 +76,11 @@ HRESULT CCamera::Init(void)
 		//注視点を設定
 		m_PositionR = PlayerPosition;
 	}
+=======
+	m_PositionV = D3DXVECTOR3(TILE_SIZE * 5.0f, 500.0f, 0.0f);
+	m_PositionR = D3DXVECTOR3(TILE_SIZE * 5.0f, 0.0f, TILE_SIZE * 2.0f);
+	m_VectorU = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+>>>>>>> remotes/origin/Himiya
 	return S_OK;
 }
 
@@ -86,6 +96,7 @@ void CCamera::Uninit(void)
 //=============================================================================
 void CCamera::Update(void)
 {
+<<<<<<< HEAD
 	//プレイヤーの取得
 	CPlayer * pPlayer = CGameMode::GetPlayer();
 	//もしプレイヤーがNULLじゃない場合
@@ -97,6 +108,15 @@ void CCamera::Update(void)
 		m_PositionV = D3DXVECTOR3(PlayerPosition.x, PlayerPosition.y, PlayerPosition.z + m_fPlayerDistance);
 		//注視点を設定する
 		m_PositionR = PlayerPosition;
+=======
+	CKeyboard *pInput = CManager::GetKeyboard();
+
+	// 前へ移動
+	if (pInput->GetKeyboardPress(DIK_UP))
+	{
+		m_PositionR.z += 10.0f;
+		m_PositionV.z += 10.0f;
+>>>>>>> remotes/origin/Himiya
 	}
 }
 

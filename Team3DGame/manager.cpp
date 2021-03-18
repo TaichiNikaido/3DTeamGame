@@ -22,6 +22,7 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "fade.h"
+<<<<<<< HEAD
 #include "player.h"
 #include "enemy.h"
 #include "effect.h"
@@ -36,6 +37,13 @@
 #include "title_logo.h"
 #include "particle.h"
 #include "bg_tutorial.h"
+=======
+#include "wood.h"
+#include "tree.h"
+#include "tile.h"
+#include "dia.h"
+
+>>>>>>> remotes/origin/Himiya
 //*****************************************************************************
 // É}ÉNÉçíËã`
 //*****************************************************************************
@@ -235,6 +243,7 @@ void CManager::SetMode(MODE Mode)
 //=============================================================================
 void CManager::LoadAll(void)
 {
+<<<<<<< HEAD
 	CPlayer::Load();
 	CEnemy::Load();
 	CEffect::Load();
@@ -249,6 +258,12 @@ void CManager::LoadAll(void)
 	CResultBG::TextureLoad();
 	CTitlelogo::Load();
 	CTutorialBG::TextureLoad();
+=======
+	CTree::Load();
+	CWood::Load();
+	CTile::Load();
+	CDia::Load();
+>>>>>>> remotes/origin/Himiya
 }
 
 //=============================================================================
@@ -256,6 +271,7 @@ void CManager::LoadAll(void)
 //=============================================================================
 void CManager::UnloadAll(void)
 {
+<<<<<<< HEAD
 	CPlayer::Unload();
 	CEnemy::Unload();
 	CEffect::Unload();
@@ -270,6 +286,12 @@ void CManager::UnloadAll(void)
 	CResultBG::TextureUnload();
 	CTitlelogo::Unload();
 	CTutorialBG::TextureUnload();
+=======
+	CWood::Unload();
+	CTree::Unload();
+	CTile::Unload();
+	CDia::Unload();
+>>>>>>> remotes/origin/Himiya
 }
 
 //=============================================================================

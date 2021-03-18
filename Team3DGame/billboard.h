@@ -23,6 +23,7 @@ public:
 	D3DXVECTOR3 GetPosition(void) { return m_pos; }
 	void SetRotation(D3DXVECTOR3 rot);
 	void SetSize(D3DXVECTOR3 size);
+	D3DXVECTOR3 GetSize(void) { return m_size; }
 	void SetColor(D3DXCOLOR col);
 	D3DXVECTOR3 GetRotation(void) { return m_rot; }
 	D3DXCOLOR GetColor(void) { return m_col; }

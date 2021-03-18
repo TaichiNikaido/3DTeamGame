@@ -154,12 +154,15 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="button_continue.cpp" />
     <ClCompile Include="button_not_continue.cpp" />
+    <ClCompile Include="byte_effect.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="circle_particle.cpp" />
     <ClCompile Include="continue.cpp" />
     <ClCompile Include="continue_button_manager.cpp" />
     <ClCompile Include="continue_logo.cpp" />
     <ClCompile Include="daiya.cpp" />
+    <ClCompile Include="dust_particle.cpp" />
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="fade.cpp" />
@@ -180,6 +183,7 @@
     <ClCompile Include="mode_tutorial.cpp" />
     <ClCompile Include="ainimation.cpp" />
     <ClCompile Include="number.cpp" />
+    <ClCompile Include="particle.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="polygon3d.cpp" />
     <ClCompile Include="renderer.cpp" />
@@ -201,12 +205,15 @@
     <ClInclude Include="button.h" />
     <ClInclude Include="button_continue.h" />
     <ClInclude Include="button_not_continue.h" />
+    <ClInclude Include="byte_effect.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="circle_particle.h" />
     <ClInclude Include="continue.h" />
     <ClInclude Include="continue_button_manager.h" />
     <ClInclude Include="continue_logo.h" />
     <ClInclude Include="daiya.h" />
+    <ClInclude Include="dust_particle.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="fade.h" />
@@ -227,6 +234,7 @@
     <ClInclude Include="mode_tutorial.h" />
     <ClInclude Include="motion.h" />
     <ClInclude Include="number.h" />
+    <ClInclude Include="particle.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="polygon3d.h" />
     <ClInclude Include="renderer.h" />

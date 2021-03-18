@@ -192,6 +192,7 @@
     <ClCompile Include="continue_logo.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="bg_continue.cpp">
       <Filter>ソース ファイル\BG</Filter>
     </ClCompile>
@@ -206,6 +207,19 @@
     </ClCompile>
     <ClCompile Include="score.cpp">
       <Filter>ソース ファイル\UI</Filter>
+=======
+    <ClCompile Include="particle.cpp">
+      <Filter>ソース ファイル\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="dust_particle.cpp">
+      <Filter>ソース ファイル\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="circle_particle.cpp">
+      <Filter>ソース ファイル\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="byte_effect.cpp">
+      <Filter>ソース ファイル\Effect</Filter>
+>>>>>>> 0af80a1970da2f87b34e8e4fde399b5c35aeb2c6
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,6 +343,7 @@
     <ClInclude Include="continue_logo.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="bg_continue.h">
       <Filter>ヘッダー ファイル\BG</Filter>
     </ClInclude>
@@ -343,6 +358,19 @@
     </ClInclude>
     <ClInclude Include="score.h">
       <Filter>ヘッダー ファイル\UI</Filter>
+=======
+    <ClInclude Include="particle.h">
+      <Filter>ヘッダー ファイル\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="dust_particle.h">
+      <Filter>ヘッダー ファイル\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="circle_particle.h">
+      <Filter>ヘッダー ファイル\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="byte_effect.h">
+      <Filter>ヘッダー ファイル\Effect</Filter>
+>>>>>>> 0af80a1970da2f87b34e8e4fde399b5c35aeb2c6
     </ClInclude>
   </ItemGroup>
 </Project>

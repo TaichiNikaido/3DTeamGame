@@ -44,6 +44,14 @@ public:
 		PARTS_CHIN,
 		PARTS_MAX,
 	}PARTS;
+	typedef enum
+	{
+		MOTION_NONE = -1,
+		MOTION_DUSH,
+		MOTION_MEAL,
+		MOTION_FALL,
+		MOTION_ATTACK
+	}MOTIONENEMY;
 	static HRESULT Load(void);
 	static void Unload(void);
 	static CEnemy * Create(void);

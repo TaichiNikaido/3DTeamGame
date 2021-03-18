@@ -58,6 +58,17 @@ public:
 		INPUT_SPACE,
 		INPUT_MAX
 	}INPUT;
+	typedef enum
+	{
+		MOTION_NONE = -1,
+		MOTION_WAIT,
+		MOTION_DUSH,
+		MOTION_JUMP,
+		MOTION_LANDING,
+		MOTION_DOWN,
+		MOTION_GETUP,
+		MOTION_STAN
+	}MOTIONPLAYER;
 	CPlayer();
 	~CPlayer();
 	static HRESULT Load(void);

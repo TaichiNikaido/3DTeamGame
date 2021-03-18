@@ -27,6 +27,9 @@
 #include "effect.h"
 #include "number.h"
 #include "ui.h"
+#include "button_continue.h"
+#include "button_not_continue.h"
+#include "continue_logo.h"
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
@@ -232,6 +235,9 @@ void CManager::LoadAll(void)
 	CEffect::Load();
 	CUi::Load();
 	CNumber::Load();
+	CContinueButton::TextureLoad();
+	CNotContinueButton::TextureLoad();
+	CContinueLogo::TextureLoad();
 }
 
 //=============================================================================
@@ -244,6 +250,9 @@ void CManager::UnloadAll(void)
 	CEffect::Unload();
 	CUi::Unload();
 	CNumber::Unload();
+	CContinueButton::TextureUnload();
+	CNotContinueButton::TextureUnload();
+	CContinueLogo::TextureUnload();
 }
 
 //=============================================================================

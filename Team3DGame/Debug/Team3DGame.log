@@ -1,2 +1,4 @@
-﻿  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.exe
+﻿  manager.cpp
+cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
+  Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.exe
   Team3DGame.vcxproj -> C:\Users\gsp025\Desktop\3DTeamGame\Debug\Team3DGame.pdb (Full PDB)

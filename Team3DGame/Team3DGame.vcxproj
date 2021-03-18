@@ -155,6 +155,7 @@
     <ClCompile Include="character.cpp" />
     <ClCompile Include="continue.cpp" />
     <ClCompile Include="continue_button_manager.cpp" />
+    <ClCompile Include="continue_logo.cpp" />
     <ClCompile Include="daiya.cpp" />
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="enemy.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="character.h" />
     <ClInclude Include="continue.h" />
     <ClInclude Include="continue_button_manager.h" />
+    <ClInclude Include="continue_logo.h" />
     <ClInclude Include="daiya.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="enemy.h" />

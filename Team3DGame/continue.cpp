@@ -14,6 +14,8 @@
 #include "keyboard.h"
 #include "joystick.h"
 #include "continue.h"
+#include "continue_logo.h"
+#include "continue_button_manager.h"
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
@@ -119,4 +121,6 @@ void CContinue::Draw(void)
 //=============================================================================
 void CContinue::CreateAll(void)
 {
+	CContinueLogo::Create();
+	CContinueButtonManager::Create();
 }

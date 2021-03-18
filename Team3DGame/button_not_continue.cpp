@@ -19,10 +19,12 @@
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
+#define TEXTURE ("Data/Texture/NO.png")
 
 //*****************************************************************************
 // 静的メンバ変数の初期化
 //*****************************************************************************
+LPDIRECT3DTEXTURE9 CNotContinueButton::m_pTexture = NULL;	//テクスチャへのポインタ
 
 //=============================================================================
 // コンストラクタ
@@ -36,6 +38,37 @@ CNotContinueButton::CNotContinueButton()
 //=============================================================================
 CNotContinueButton::~CNotContinueButton()
 {
+}
+
+//=============================================================================
+// テクスチャ読み込み関数
+//=============================================================================
+HRESULT CNotContinueButton::TextureLoad(void)
+{
+	//レンダラーの取得
+	CRenderer *pRenderer = CManager::GetRenderer();
+	//デバイスの取得
+	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
+	// テクスチャの生成
+	D3DXCreateTextureFromFile(pDevice,	// デバイスへのポインタ
+		TEXTURE,						// ファイルの名前
+		&m_pTexture);					// 読み込むメモリー
+	return S_OK;
+}
+
+//=============================================================================
+// テクスチャ破棄関数
+//=============================================================================
+void CNotContinueButton::TextureUnload(void)
+{
+	// テクスチャの破棄
+	if (m_pTexture != NULL)
+	{
+		//テクスチャの破棄処理関数呼び出し
+		m_pTexture->Release();
+		//テクスチャをNULLにする
+		m_pTexture = NULL;
+	}
 }
 
 //=============================================================================
@@ -68,6 +101,16 @@ CNotContinueButton * CNotContinueButton::Create(D3DXVECTOR3 Position)
 //=============================================================================
 HRESULT CNotContinueButton::Init(void)
 {
+	//テクスチャのUV座標の設定
+	D3DXVECTOR2 aTexture[NUM_VERTEX];
+	aTexture[0] = D3DXVECTOR2(0.0f, 0.0f);
+	aTexture[1] = D3DXVECTOR2(1.0f, 0.0f);
+	aTexture[2] = D3DXVECTOR2(0.0f, 1.0f);
+	aTexture[3] = D3DXVECTOR2(1.0f, 1.0f);
+	//テクスチャの設定
+	SetTexture(aTexture);
+	//テクスチャの割り当て
+	BindTexture(m_pTexture);
 	//ボタンの初期化処理関数呼び出し
 	CButton::Init();
 	return S_OK;

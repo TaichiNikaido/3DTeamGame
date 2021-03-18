@@ -26,7 +26,7 @@
 #include "camera.h"
 #include "item_meat.h"
 #include "stan_effect.h"
-#include "continue_button_manager.h"
+#include "continue.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -403,7 +403,7 @@ void CPlayer::Death(void)
 	//ダイアモンドの所持数を0にする
 	m_nDiamond = MINIMUM_DIAMOND;
 	//コンティニュー画面の生成
-	CContinueButtonManager::Create();
+	CContinue::Create();
 }
 
 //=============================================================================
@@ -416,6 +416,9 @@ void CPlayer::Continue(void)
 	//肉の所持数を回復させる
 	m_nMeat = m_nMaxMeat;
 	//チェックポイントに戻す
+	//
+	//生存状態にする
+	m_State = STATE_LIVE;
 }
 
 //=============================================================================
